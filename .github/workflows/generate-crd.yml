@@ -1,5 +1,8 @@
 name: Generate Gravitee CRD
 
+permissions:
+  contents: write
+
 on:
   push:
     paths:
