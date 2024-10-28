@@ -1,0 +1,2 @@
+entrypoint: "/stuff"
+endpoint: "https://api.gravitee.io/echo"
