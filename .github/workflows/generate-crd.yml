@@ -1,0 +1,33 @@
+name: Generate Gravitee CRD
+
+on:
+  push:
+    paths:
+      - 'openapi.yaml'
+      - 'properties.yaml'
+  workflow_dispatch:
+
+jobs:
+  generate-crd:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install js-yaml
+
+      - name: Run CRD generation script
+        run: node generateCrd.js openapi.yaml properties.yaml
+
+      - name: Upload generated CRD
+        uses: actions/upload-artifact@v3
+        with:
+          name: gravitee-crd
+          path: gravitee-crd.yaml
