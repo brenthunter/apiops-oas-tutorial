@@ -1,0 +1,35 @@
+apiVersion: gravitee.io/v1alpha1
+kind: ApiV4Definition
+metadata:
+  name: sample-api
+spec:
+  name: Sample API
+  description: A sample API to illustrate OpenAPI concepts
+  version: 1.0.0
+  type: PROXY
+  listeners:
+    - type: HTTP
+      paths:
+        - path: /stuff
+      entrypoints:
+        - type: http-proxy
+          qos: AUTO
+  endpointGroups:
+    - name: Default HTTP proxy group
+      type: http-proxy
+      endpoints:
+        - name: Default HTTP proxy
+          type: http-proxy
+          inheritConfiguration: false
+          configuration:
+            target: https://api.gravitee.io/echo
+          secondary: false
+  flowExecution:
+    mode: DEFAULT
+    matchRequired: false
+  plans:
+    KeyLess:
+      name: Free plan
+      description: This plan does not require any authentication
+      security:
+        type: KEY_LESS
