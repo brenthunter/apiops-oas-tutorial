@@ -30,20 +30,6 @@ jobs:
         run: node generateCrd.js openapi.yaml properties.yaml
 
       - name: GitHub Commit Push File
-      # You may pin to the exact commit or the version.
-      # uses: maxgfr/github-commit-push-file@66cf828b77c2348547bef9ee761af5b96b36f0ad
         uses: maxgfr/github-commit-push-file@v0.0.6
         with:
-        # Name of the commit
-          commit_name: my-commit
-
- #     - name: Commit file
- #       uses: stefanzweifel/git-auto-commit-action@v4
- #       with:
- #         commit_message: Changed file
-          
-#      - name: Upload generated CRD
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: gravitee-crd
-#          path: gravitee-crd.yaml
+          commit_name: Github action has updated the generated CRD
