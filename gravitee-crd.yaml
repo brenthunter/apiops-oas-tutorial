@@ -13,6 +13,7 @@ spec:
     syncFrom: MANAGEMENT
   contextRef:
     name: dev
+    namespace: default
   listeners:
     - type: HTTP
       paths:
