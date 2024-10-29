@@ -17,7 +17,7 @@ spec:
   listeners:
     - type: HTTP
       paths:
-        - path: /things
+        - path: /new
       entrypoints:
         - type: http-proxy
           qos: AUTO
