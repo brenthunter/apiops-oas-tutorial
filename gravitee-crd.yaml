@@ -7,6 +7,11 @@ spec:
   description: A sample API to illustrate OpenAPI concepts
   version: 1.0.0
   type: PROXY
+  definitionContext:
+    origin: KUBERNETES
+    syncFrom: MANAGEMENT
+  contextRef:
+    name: dev
   listeners:
     - type: HTTP
       paths:
@@ -28,8 +33,8 @@ spec:
     mode: DEFAULT
     matchRequired: false
   plans:
-    KeyLess:
-      name: Free plan
-      description: This plan does not require any authentication
+    API_KEY:
+      name: API Key plan
+      description: API key plan needs a key to authenticate
       security:
-        type: KEY_LESS
+        type: API_KEY
