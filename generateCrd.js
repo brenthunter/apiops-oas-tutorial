@@ -45,7 +45,8 @@ function generateCRD(openApiData, propertiesData) {
         syncFrom: "MANAGEMENT"
       },
       contextRef: {
-        name: propertiesData.environment
+        name: propertiesData.environment,
+        namespace: "default"
       },
       listeners: [
         {
