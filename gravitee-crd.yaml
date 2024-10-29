@@ -17,7 +17,7 @@ spec:
   listeners:
     - type: HTTP
       paths:
-        - path: /boom
+        - path: /yesssss
       entrypoints:
         - type: http-proxy
           qos: AUTO
