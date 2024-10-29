@@ -1,0 +1,35 @@
+name: Generate Gravitee CRD
+
+permissions:
+  contents: write
+
+on:
+  push:
+    paths:
+      - 'openapi.yaml'
+      - 'properties.yaml'
+  workflow_dispatch:
+
+jobs:
+  generate-crd:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install js-yaml
+
+      - name: Run CRD generation script
+        run: node generateCrd.js openapi.yaml properties.yaml
+
+      - name: GitHub Commit Push File
+        uses: maxgfr/github-commit-push-file@v0.0.6
+        with:
+          commit_name: Github action has updated the generated CRD
