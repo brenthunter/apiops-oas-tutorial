@@ -33,6 +33,7 @@ function generateCRD(openApiData, propertiesData) {
     kind: "ApiV4Definition",
     metadata: {
       name: openApiData.info.title.toLowerCase().replace(/ /g, "-"),
+      namespace: "default",
     },
     spec: {
       name: openApiData.info.title,
