@@ -1,4 +1,4 @@
-entrypoint: "/new"
+entrypoint: "/blip"
 endpoint: "https://api.gravitee.io/echo"
 apiKeyEnabled: true
 environment: dev
