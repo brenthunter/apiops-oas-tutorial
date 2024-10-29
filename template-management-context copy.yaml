@@ -1,0 +1,18 @@
+# Make a copy of this file called management-context.yaml
+
+apiVersion: gravitee.io/v1alpha1
+kind: ManagementContext
+metadata:
+  # dev is the name we're using in this example project
+  # but you could create others and reference them by 
+  # changing the value of the environment property in the
+  # properties.yaml file.
+  name: dev
+spec:
+  baseUrl: <your-gravitee-apim-management-api-url>
+  environmentId: DEFAULT
+  organizationId: DEFAULT
+  auth:
+    bearerToken: <your-token>
+    # see https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/guides/define-an-apim-service-account-for-gko
+    # for a guide on how to create a token for GKO
