@@ -2,6 +2,7 @@ apiVersion: gravitee.io/v1alpha1
 kind: ApiV4Definition
 metadata:
   name: sample-api
+  namespace: default
 spec:
   name: Sample API
   description: A sample API to illustrate OpenAPI concepts
