@@ -1,10 +1,10 @@
 apiVersion: gravitee.io/v1alpha1
 kind: ApiV4Definition
 metadata:
-  name: petstore-api
+  name: sample-api
   namespace: default
 spec:
-  name: Petstore API
+  name: Sample API
   description: A sample API to illustrate OpenAPI concepts
   version: 1.0.0
   type: PROXY
@@ -17,7 +17,7 @@ spec:
   listeners:
     - type: HTTP
       paths:
-        - path: /petstore
+        - path: /example-path
       entrypoints:
         - type: http-proxy
           qos: AUTO
