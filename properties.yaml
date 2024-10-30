@@ -1,4 +1,4 @@
-entrypoint: "/yesssss"
+entrypoint: "/my-api-path"
 endpoint: "https://api.gravitee.io/echo"
 apiKeyEnabled: true
 environment: dev
