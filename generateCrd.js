@@ -32,7 +32,8 @@ function generateCRD(openApiData, propertiesData) {
     apiVersion: "gravitee.io/v1alpha1",
     kind: "ApiV4Definition",
     metadata: {
-      name: openApiData.info.title.toLowerCase().replace(/ /g, "-"),
+      /* name: openApiData.info.title.toLowerCase().replace(/ /g, "-"), */
+      name: "generated-crd",
       namespace: "default",
     },
     spec: {
