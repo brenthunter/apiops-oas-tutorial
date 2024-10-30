@@ -17,7 +17,7 @@ spec:
   listeners:
     - type: HTTP
       paths:
-        - path: /yesssss
+        - path: /my-api-path
       entrypoints:
         - type: http-proxy
           qos: AUTO
