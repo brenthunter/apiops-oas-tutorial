@@ -12,7 +12,7 @@ spec:
     origin: KUBERNETES
     syncFrom: MANAGEMENT
   contextRef:
-    name: dev
+    name: context
     namespace: default
   listeners:
     - type: HTTP
