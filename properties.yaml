@@ -1,5 +1,14 @@
+# (Mandatory) The pipeline will use the entrypoint to configure the base path (aka context path) on which this API will be exposed on the API Gateway.
 entrypoint: "/petstore"
+
+# (Mandatory) The endpoint refers to the backend service to be proxied.
 endpoint: "https://api.gravitee.io/echo"
+
+# (Mandatory) apiKeyEnabled determines whether or not an API key plan should be added to the API.
 apiKeyEnabled: true
-environment: context
+
+# (Mandatory) The environment parameter is used to determine on which environment the API should be created.
+environment: dev
+
+# (Optional) Use the corporate rate-limit configure
 rateLimitingEnabled: false
