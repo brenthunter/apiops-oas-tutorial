@@ -28,6 +28,27 @@ function generateCRD(openApiData, propertiesData) {
         },
       };
 
+  const policiesRatelimiting = propertiesData.rateLimitingEnabled
+    ? {
+        name: "Rate Limit",
+        description: "Rate limiting",
+        enabled: true,
+        policy: "rate-limit",
+        configuration: {
+          async: false,
+          addHeaders: true,
+          rate: {
+            useKeyOnly: false,
+            periodTime: 1,
+            limit: 5,
+            periodTimeUnit: "MINUTES",
+          },
+        },
+      }
+    : {
+        empty: "true",
+      };
+  
   const crd = {
     apiVersion: "gravitee.io/v1alpha1",
     kind: "ApiV4Definition",
@@ -85,6 +106,20 @@ function generateCRD(openApiData, propertiesData) {
       flowExecution: {
         mode: "DEFAULT",
         matchRequired: false,
+      },
+      flows: {
+        name: "default",
+        enabled: true,
+        selectors: {
+          type: "HTTP",
+          path: "/",
+          pathOperator: "EQUALS",
+          methods: [ ]
+        },
+        request: [ policiesRatelimiting ],
+        response: [ ],
+        subscribe: [ ],
+        publish: [ ]
       },
       plans: plans,
     },
