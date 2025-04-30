@@ -2,3 +2,4 @@ entrypoint: "/petstore"
 endpoint: "https://api.gravitee.io/echo"
 apiKeyEnabled: true
 environment: context
+rateLimitingEnabled: false
