@@ -110,16 +110,18 @@ function generateCRD(openApiData, propertiesData) {
       flows: {
         name: "default",
         enabled: true,
-        selectors: {
-          type: "HTTP",
-          path: "/",
-          pathOperator: "EQUALS",
-          methods: [ ]
-        },
+        selectors: [
+          {
+            type: "HTTP",
+            path: "/",
+            pathOperator: "EQUALS",
+            methods: [ ],
+          },
+        ],
         request: [ policiesRatelimiting ],
         response: [ ],
         subscribe: [ ],
-        publish: [ ]
+        publish: [ ],
       },
       plans: plans,
     },
@@ -140,8 +142,8 @@ function main() {
     const propertiesData = loadYAML(propertiesFilePath);
 
     const crd = generateCRD(openApiData, propertiesData);
-    fs.writeFileSync("gravitee-crd.yaml", crd);
-    console.log("Generated CRD file: gravitee-crd.yaml");
+    fs.writeFileSync("API_DEFINTIION_FILE.yaml", crd);
+    console.log("Generated CRD file: API_DEFINTIION_FILE.yaml");
   } catch (error) {
     console.error("Error generating CRD:", error);
   }
