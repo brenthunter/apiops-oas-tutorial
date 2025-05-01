@@ -8,7 +8,7 @@ endpoint: "https://api.gravitee.io/echo"
 apiKeyEnabled: true
 
 # (Mandatory) The environment parameter is used to determine on which environment the API should be created.
-environment: dev
+environment: management-context-1
 
 # (Optional) Use the corporate rate-limit configure.
 rateLimitingEnabled: true
