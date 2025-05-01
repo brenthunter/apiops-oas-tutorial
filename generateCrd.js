@@ -29,7 +29,7 @@ function generateCRD(openApiData, propertiesData) {
       };
 
   const policiesRatelimiting = propertiesData.rateLimitingEnabled
-    ? {
+    ? [ {
         name: "Rate Limit",
         description: "Rate limiting",
         enabled: true,
@@ -44,7 +44,7 @@ function generateCRD(openApiData, propertiesData) {
             periodTimeUnit: "MINUTES",
           },
         },
-      }
+      } ]
     : [ ];
   
   const crd = {
