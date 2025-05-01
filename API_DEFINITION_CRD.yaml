@@ -12,7 +12,7 @@ spec:
     origin: KUBERNETES
     syncFrom: MANAGEMENT
   contextRef:
-    name: dev
+    name: management-context-1
     namespace: default
   listeners:
     - type: HTTP
@@ -35,7 +35,7 @@ spec:
     mode: DEFAULT
     matchRequired: false
   flows:
-    - name: default
+    - name: Rate Limiting Flow
       enabled: true
       selectors:
         - type: HTTP
