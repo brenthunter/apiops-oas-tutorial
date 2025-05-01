@@ -45,7 +45,7 @@ function generateCRD(openApiData, propertiesData) {
           },
         },
       }
-    : ;
+    : [ ];
   
   const crd = {
     apiVersion: "gravitee.io/v1alpha1",
@@ -117,7 +117,7 @@ function generateCRD(openApiData, propertiesData) {
               methods: [ ],
             },
           ],
-          request: [ policiesRatelimiting ],
+          request: policiesRatelimiting,
           response: [ ],
           subscribe: [ ],
           publish: [ ],
