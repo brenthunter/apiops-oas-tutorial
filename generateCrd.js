@@ -28,23 +28,40 @@ function generateCRD(openApiData, propertiesData) {
         },
       };
 
-  const policiesRatelimiting = propertiesData.rateLimitingEnabled
-    ? [ {
-        name: "Rate Limit",
-        description: "Rate limiting",
-        enabled: true,
-        policy: "rate-limit",
-        configuration: {
-          async: false,
-          addHeaders: true,
-          rate: {
-            useKeyOnly: false,
-            periodTime: 1,
-            limit: 5,
-            periodTimeUnit: "MINUTES",
-          },
+  const flows = propertiesData.rateLimitingEnabled
+    ? [
+        {
+          name: "Rate Limiting Flow",
+          enabled: true,
+          selectors: [
+            {
+              type: "HTTP",
+              path: "/",
+              pathOperator: "EQUALS",
+              methods: [ ],
+            },
+          ],
+          request: [ {
+            name: "Rate Limit",
+            description: "Rate limiting",
+            enabled: true,
+            policy: "rate-limit",
+            configuration: {
+              async: false,
+              addHeaders: true,
+              rate: {
+                useKeyOnly: false,
+                periodTime: 1,
+                limit: 5,
+                periodTimeUnit: "MINUTES",
+              },
+            },
+          } ],
+          response: [ ],
+          subscribe: [ ],
+          publish: [ ],
         },
-      } ]
+      ]
     : [ ];
   
   const crd = {
@@ -105,24 +122,7 @@ function generateCRD(openApiData, propertiesData) {
         mode: "DEFAULT",
         matchRequired: false,
       },
-      flows: [
-        {
-          name: "default",
-          enabled: true,
-          selectors: [
-            {
-              type: "HTTP",
-              path: "/",
-              pathOperator: "EQUALS",
-              methods: [ ],
-            },
-          ],
-          request: policiesRatelimiting,
-          response: [ ],
-          subscribe: [ ],
-          publish: [ ],
-        },
-      ],
+      flows: flows,
       plans: plans,
     },
   };
