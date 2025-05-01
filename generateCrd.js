@@ -142,8 +142,8 @@ function main() {
     const propertiesData = loadYAML(propertiesFilePath);
 
     const crd = generateCRD(openApiData, propertiesData);
-    fs.writeFileSync("API_DEFINTIION_FILE.yaml", crd);
-    console.log("Generated CRD file: API_DEFINTIION_FILE.yaml");
+    fs.writeFileSync("API_DEFINITION_CRD.yaml", crd);
+    console.log("Generated CRD file: API_DEFINITION_CRD.yaml");
   } catch (error) {
     console.error("Error generating CRD:", error);
   }
