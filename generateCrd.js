@@ -123,8 +123,8 @@ function generateCRD(openApiData, propertiesData) {
           response: [ ],
           subscribe: [ ],
           publish: [ ],
-        ],
-      },
+        },
+      ],
       plans: plans,
     },
   };
