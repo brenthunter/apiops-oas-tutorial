@@ -42,8 +42,7 @@ spec:
           path: /
           pathOperator: EQUALS
           methods: []
-      request:
-        - {}
+      request: []
       response: []
       subscribe: []
       publish: []
