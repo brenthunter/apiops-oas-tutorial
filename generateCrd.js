@@ -107,21 +107,23 @@ function generateCRD(openApiData, propertiesData) {
         mode: "DEFAULT",
         matchRequired: false,
       },
-      flows: {
-        name: "default",
-        enabled: true,
-        selectors: [
-          {
-            type: "HTTP",
-            path: "/",
-            pathOperator: "EQUALS",
-            methods: [ ],
-          },
+      flows: [
+        {
+          name: "default",
+          enabled: true,
+          selectors: [
+            {
+              type: "HTTP",
+              path: "/",
+              pathOperator: "EQUALS",
+              methods: [ ],
+            },
+          ],
+          request: [ policiesRatelimiting ],
+          response: [ ],
+          subscribe: [ ],
+          publish: [ ],
         ],
-        request: [ policiesRatelimiting ],
-        response: [ ],
-        subscribe: [ ],
-        publish: [ ],
       },
       plans: plans,
     },
