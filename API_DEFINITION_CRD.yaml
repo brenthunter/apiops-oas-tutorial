@@ -42,7 +42,19 @@ spec:
           path: /
           pathOperator: EQUALS
           methods: []
-      request: []
+      request:
+        name: Rate Limit
+        description: Rate limiting
+        enabled: true
+        policy: rate-limit
+        configuration:
+          async: false
+          addHeaders: true
+          rate:
+            useKeyOnly: false
+            periodTime: 1
+            limit: 5
+            periodTimeUnit: MINUTES
       response: []
       subscribe: []
       publish: []
