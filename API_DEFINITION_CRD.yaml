@@ -42,7 +42,8 @@ spec:
         type: API_KEY
       flows: []
   flows:
-    - enabled: true
+    - name: Returns a list of stuff
+      enabled: true
       selectors:
         - type: HTTP
           path: /list
