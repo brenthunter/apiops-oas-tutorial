@@ -34,33 +34,10 @@ spec:
   flowExecution:
     mode: DEFAULT
     matchRequired: false
-  flows:
-    - name: Rate Limiting Flow
-      enabled: true
-      selectors:
-        - type: HTTP
-          path: /
-          pathOperator: EQUALS
-          methods: []
-      request:
-        - name: Rate Limit
-          description: Rate limiting
-          enabled: true
-          policy: rate-limit
-          configuration:
-            async: false
-            addHeaders: true
-            rate:
-              useKeyOnly: false
-              periodTime: 1
-              limit: 5
-              periodTimeUnit: MINUTES
-      response: []
-      subscribe: []
-      publish: []
   plans:
     API_KEY:
       name: API Key plan
       description: API key plan needs a key to authenticate
       security:
         type: API_KEY
+      flows: []
