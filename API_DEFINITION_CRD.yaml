@@ -46,7 +46,7 @@ spec:
       enabled: true
       selectors:
         - type: HTTP
-          path: /list
+          path: "/list"
           pathOperator: EQUALS
           methods:
-            - GET
+            - "GET"
