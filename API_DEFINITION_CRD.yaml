@@ -42,13 +42,10 @@ spec:
         type: API_KEY
       flows: []
   flows:
-    - |-
-      {
-            enabled: true,
-            selectors: [
-              type: "HTTP",
-              path: "/list",
-              pathOperator: "EQUALS",
-              methods: ["GET"],
-            ],
-          }
+    - enabled: true
+      selectors:
+        - type: HTTP
+          path: ${path}
+          pathOperator: EQUALS
+          methods:
+            - GET
