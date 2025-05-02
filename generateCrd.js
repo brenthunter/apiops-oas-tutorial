@@ -66,25 +66,30 @@ function generateCRD(openApiData, propertiesData) {
         },
       };
 
-  // Iterate over the paths
-  const paths = openApiData.paths;
-  let flowsFromOpenAPI = [];
-  for (const [path, methods] of Object.entries(paths)) {
-    for (const [method, details] of Object.entries(methods)) {
-      console.log(`Path: ${path}`);
-      const tmpPath = {
-        name: details.description + " (" + method.toUpperCase() + " " + path + ")",
-        enabled: true,
-        selectors: [{
-          type: "HTTP",
-          path: path,
-          pathOperator: "EQUALS",
-          methods: [ method.toUpperCase() ],
-        }],
+  const addOpenApiPathsToFlows = propertiesData.addOpenApiPathsToFlowsEnabled
+    ? {
+        // Iterate over the paths
+        const paths = openApiData.paths;
+        let flowsFromOpenAPI = [];
+        for (const [path, methods] of Object.entries(paths)) {
+          for (const [method, details] of Object.entries(methods)) {
+            console.log(`Path: ${path}`);
+            const tmpPath = {
+              name: details.description + " (" + method.toUpperCase() + " " + path + ")",
+              enabled: true,
+              selectors: [{
+                type: "HTTP",
+                path: path,
+                pathOperator: "EQUALS",
+                methods: [ method.toUpperCase() ],
+              }],
+            };
+            flowsFromOpenAPI.push(tmpPath);
+          },
+        }
+      : {
+          [ ]
       };
-      flowsFromOpenAPI.push(tmpPath);
-    };
-  }
   
   const crd = {
     apiVersion: "gravitee.io/v1alpha1",
@@ -145,7 +150,7 @@ function generateCRD(openApiData, propertiesData) {
         matchRequired: false,
       },
       plans: plans,
-      flows: flowsFromOpenAPI,
+      flows: addOpenApiPathsToFlows,
     },
   };
   return yaml.dump(crd);
