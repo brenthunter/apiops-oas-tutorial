@@ -66,6 +66,8 @@ function generateCRD(openApiData, propertiesData) {
         },
       };
 
+  console.log(openApiData.paths);
+  
   const flowsFromOpenAPI = openApiData.paths.forEach((element) => console.log(element));
   
   const crd = {
