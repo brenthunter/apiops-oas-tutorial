@@ -66,32 +66,24 @@ function generateCRD(openApiData, propertiesData) {
         },
       };
 
-  console.log(openApiData.paths);
-
   // Iterate over the paths
   const paths = openApiData.paths;
   let flowsFromOpenAPI = [];
   for (const [path, methods] of Object.entries(paths)) {
     for (const [method, details] of Object.entries(methods)) {
       console.log(`Path: ${path}`);
-      const something = {
+      const tmpPath = {
         name: details.description,
         enabled: true,
         selectors: [{
           type: "HTTP",
           path: path,
           pathOperator: "EQUALS",
-          methods: [ method ],
+          methods: [ method.toUpperCase() ],
         }],
       };
-      flowsFromOpenAPI.push(something);
+      flowsFromOpenAPI.push(tmpPath);
     };
-  
-    //flowsFromOpenAPI.push(something);
-  
-    // for (const [method, details] of Object.entries(methods)) {
-    //   console.log(`  Method: ${method.toUpperCase()} - Description: ${details.description}`);
-    // }
   }
   
   const crd = {
