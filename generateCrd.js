@@ -8,7 +8,7 @@ function loadYAML(filePath) {
 
 // Generate CRD
 function generateCRD(openApiData, propertiesData) {
-  const flows = propertiesData.rateLimitingEnabled
+  const planFlows = propertiesData.rateLimitingEnabled
     ? [
         {
           name: "Rate Limiting Flow",
@@ -52,7 +52,7 @@ function generateCRD(openApiData, propertiesData) {
           security: {
             type: "API_KEY",
           },
-          flows: flows,
+          flows: planFlows,
         },
       }
     : {
@@ -62,10 +62,15 @@ function generateCRD(openApiData, propertiesData) {
           security: {
             type: "KEY_LESS",
           },
-          flows: flows,
+          flows: planFlows,
         },
       };
 
+  const flowsFromOpenAPI = openApiData.paths.forEach((element) => 
+    {
+      test: element,
+    },
+  );
 
   
   const crd = {
@@ -127,6 +132,7 @@ function generateCRD(openApiData, propertiesData) {
         matchRequired: false,
       },
       plans: plans,
+      flows: flowsFromOpenAPI,
     },
   };
   return yaml.dump(crd);
