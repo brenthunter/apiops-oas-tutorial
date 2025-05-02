@@ -50,3 +50,11 @@ spec:
           pathOperator: EQUALS
           methods:
             - GET
+    - name: Create a new Pet
+      enabled: true
+      selectors:
+        - type: HTTP
+          path: /pets
+          pathOperator: EQUALS
+          methods:
+            - POST
