@@ -42,12 +42,10 @@ spec:
         type: API_KEY
       flows: []
   flows:
-    - name: "Place an order3"
+    - name: "Place an order4"
       enabled: true
       selectors:
-      - type: "HTTP"
-        path: "/order3"
-        pathOperator: "EQUALS"
-        methods:
-        - "GET"
-        - "POST"
+        - type: "HTTP"
+          path: "/order4"
+          pathOperator: "EQUALS"
+          methods: [ ]
