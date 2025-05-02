@@ -41,4 +41,13 @@ spec:
       security:
         type: API_KEY
       flows: []
-
+  flows:
+    - name: "Place an order"
+      enabled: true
+      selectors:
+        - type: "HTTP"
+          path: "/order"
+          pathOperator: "EQUALS"
+          methods:
+            - "GET"
+            - "POST"
