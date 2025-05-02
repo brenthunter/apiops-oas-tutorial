@@ -36,7 +36,7 @@ function generateCRD(openApiData, propertiesData) {
           selectors: [
             {
               type: 'HTTP',
-              path: '\',
+              path: '/',
               pathOperator: 'EQUALS',
               methods: [ ],
             },
