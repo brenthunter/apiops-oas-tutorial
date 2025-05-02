@@ -84,7 +84,9 @@ function generateCRD(openApiData, propertiesData) {
           }],
         };
         flowsFromOpenAPI.push(tmpPath);
-    };
+      }
+    }
+  };
   
   const crd = {
     apiVersion: "gravitee.io/v1alpha1",
