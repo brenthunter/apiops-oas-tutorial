@@ -67,8 +67,28 @@ function generateCRD(openApiData, propertiesData) {
       };
 
   console.log(openApiData.paths);
-  
-  const flowsFromOpenAPI = openApiData.paths.forEach((element) => console.log(element));
+
+  const paths = openApiSpec.paths;
+  const flowsFromOpenAPI = Object.keys(paths);
+  // Iterate over the paths
+  const paths = openApiSpec.paths;
+  for (const [path, methods] of Object.entries(paths)) {
+    console.log(`Path: ${path}`);
+    // flowsFromOpenAPI += `Path: ${path}`;
+    const something = {
+      enabled: true,
+      selectors: [
+        type: "HTTP",
+        path: "${path}",
+        pathOperator: "EQUALS",
+        methods: ["GET"],
+      ],
+    };
+    flowsFromOpenAPI += something
+    // for (const [method, details] of Object.entries(methods)) {
+    //   console.log(`  Method: ${method.toUpperCase()} - Description: ${details.description}`);
+    // }
+  }
   
   const crd = {
     apiVersion: "gravitee.io/v1alpha1",
