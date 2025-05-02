@@ -73,7 +73,7 @@ function generateCRD(openApiData, propertiesData) {
   let flowsFromOpenAPI = [];
   for (const [path, methods] of Object.entries(paths)) {
     console.log(`Path: ${path}`);
-    flowsFromOpenAPI.push({
+    flowsFromOpenAPI.push(`{
       enabled: true,
       selectors: [
         type: "HTTP",
@@ -81,7 +81,7 @@ function generateCRD(openApiData, propertiesData) {
         pathOperator: "EQUALS",
         methods: ["GET"],
       ],
-    });
+    }`);
     // for (const [method, details] of Object.entries(methods)) {
     //   console.log(`  Method: ${method.toUpperCase()} - Description: ${details.description}`);
     // }
