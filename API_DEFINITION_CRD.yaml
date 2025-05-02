@@ -49,11 +49,7 @@ spec:
           path: /list
           pathOperator: EQUALS
           methods:
-            - get:
-                description: Returns a list of stuff
-                responses:
-                  '200':
-                    description: Successful response
+            - get
     - name: Create a new Pet
       enabled: true
       selectors:
@@ -61,8 +57,4 @@ spec:
           path: /pets
           pathOperator: EQUALS
           methods:
-            - post:
-                description: Create a new Pet
-                responses:
-                  '201':
-                    description: Created
+            - post
