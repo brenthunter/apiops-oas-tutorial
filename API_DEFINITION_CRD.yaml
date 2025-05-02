@@ -38,15 +38,15 @@ spec:
     - name: Rate Limiting Flow
       enabled: true
       selectors:
-        - type: '"HTTP"'
-          path: '"/"'
-          pathOperator: '"EQUALS"'
+        - type: HTTP
+          path: /
+          pathOperator: EQUALS
           methods: []
       request:
         - name: Rate Limit
           description: Rate limiting
           enabled: true
-          policy: '"rate-limit"'
+          policy: rate-limit
           configuration:
             async: false
             addHeaders: true
@@ -54,7 +54,7 @@ spec:
               useKeyOnly: false
               periodTime: 1
               limit: 5
-              periodTimeUnit: '"MINUTES"'
+              periodTimeUnit: MINUTES
       response: []
       subscribe: []
       publish: []
