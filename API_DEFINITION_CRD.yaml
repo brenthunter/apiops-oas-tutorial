@@ -65,3 +65,10 @@ spec:
           path: "/order7"
           pathOperator: "EQUALS"
           methods: [ "GET", "POST" ]
+    - name: "Place an order8"
+      enabled: true
+      selectors:
+          type: "HTTP"
+          path: "/order8"
+          pathOperator: "EQUALS"
+          methods: [ "GET", "POST" ]
