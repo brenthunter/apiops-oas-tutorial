@@ -10,3 +10,9 @@ paths:
       responses:
         '200':
           description: Successful response
+  /pets:
+    post:
+      description: Create a new Pet             
+      responses:
+        '201':
+          description: Created
