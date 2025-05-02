@@ -8,26 +8,6 @@ function loadYAML(filePath) {
 
 // Generate CRD
 function generateCRD(openApiData, propertiesData) {
-  const plans = propertiesData.apiKeyEnabled
-    ? {
-        API_KEY: {
-          name: "API Key plan",
-          description: "API key plan needs a key to authenticate",
-          security: {
-            type: "API_KEY",
-          },
-        },
-      }
-    : {
-        KeyLess: {
-          name: "Free plan",
-          description: "This plan does not require any authentication",
-          security: {
-            type: "KEY_LESS",
-          },
-        },
-      };
-
   const flows = propertiesData.rateLimitingEnabled
     ? [
         {
@@ -63,6 +43,29 @@ function generateCRD(openApiData, propertiesData) {
         },
       ]
     : [ ];
+  
+  const plans = propertiesData.apiKeyEnabled
+    ? {
+        API_KEY: {
+          name: "API Key plan",
+          description: "API key plan needs a key to authenticate",
+          security: {
+            type: "API_KEY",
+          },
+          flows: flows,
+        },
+      }
+    : {
+        KeyLess: {
+          name: "Free plan",
+          description: "This plan does not require any authentication",
+          security: {
+            type: "KEY_LESS",
+          },
+        },
+      };
+
+
   
   const crd = {
     apiVersion: "gravitee.io/v1alpha1",
@@ -122,7 +125,6 @@ function generateCRD(openApiData, propertiesData) {
         mode: "DEFAULT",
         matchRequired: false,
       },
-      flows: flows,
       plans: plans,
     },
   };
