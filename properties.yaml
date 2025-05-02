@@ -10,5 +10,5 @@ apiKeyEnabled: true
 # (Mandatory) The environment parameter is used to determine on which environment the API should be created.
 environment: management-context-1
 
-# (Optional) Use the corporate rate-limit configure
+# (Optional) Use the corporate rate-limit configure.
 rateLimitingEnabled: false
