@@ -77,7 +77,7 @@ function generateCRD(openApiData, propertiesData) {
       enabled: true,
       selectors: [{
         type: "HTTP",
-        path: "${path}",
+        path: path,
         pathOperator: "EQUALS",
         methods: ["GET"],
       }],
