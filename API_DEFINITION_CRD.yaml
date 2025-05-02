@@ -42,27 +42,12 @@ spec:
         type: API_KEY
       flows: []
   flows:
-    - name: Returns a list of stuff
+    - name: "Places another order2"
       enabled: true
       selectors:
-        - type: HTTP
-          path: "/list"
-          pathOperator: EQUALS
-          methods:
-            - "GET"
-    - name: Places an order
-      enabled: true
-      selectors:
-        - type: HTTP
-          path: "/order"
-          pathOperator: EQUALS
-          methods:
-            - "POST"
-    - name: "Places another order"
-      enabled: true
-      selectors:
-      - type: HTTP
+      - type: "HTTP"
         path: "/anotherorder"
-        pathOperator: EQUALS
+        pathOperator: "EQUALS"
         methods:
         - "POST"
+        - "GET"
