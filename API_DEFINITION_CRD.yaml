@@ -58,3 +58,11 @@ spec:
           pathOperator: EQUALS
           methods:
             - "POST"
+    - name: "Places another order"
+      enabled: true
+      selectors:
+      - type: HTTP
+        path: "/order"
+        pathOperator: EQUALS
+        methods:
+        - "POST"
