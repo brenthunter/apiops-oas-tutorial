@@ -62,7 +62,7 @@ spec:
       enabled: true
       selectors:
       - type: HTTP
-        path: "/order"
+        path: "/anotherorder"
         pathOperator: EQUALS
         methods:
         - "POST"
