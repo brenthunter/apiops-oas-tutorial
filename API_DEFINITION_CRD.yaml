@@ -49,4 +49,4 @@ spec:
           path: /list
           pathOperator: EQUALS
           methods:
-            - get
+            - GET
