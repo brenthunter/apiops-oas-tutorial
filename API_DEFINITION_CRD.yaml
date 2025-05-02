@@ -50,3 +50,11 @@ spec:
           pathOperator: EQUALS
           methods:
             - "GET"
+    - name: Places an order
+      enabled: true
+      selectors:
+        - type: HTTP
+          path: "/order"
+          pathOperator: EQUALS
+          methods:
+            - "POST"
