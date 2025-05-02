@@ -72,15 +72,18 @@ function generateCRD(openApiData, propertiesData) {
   const paths = openApiData.paths;
   let flowsFromOpenAPI = [];
   for (const [path, methods] of Object.entries(paths)) {
-    console.log(`Path: ${path}`);
-    const something = {
-      enabled: true,
-      selectors: [{
-        type: "HTTP",
-        path: path,
-        pathOperator: "EQUALS",
-        methods: ["GET"],
-      }],
+    for (const [method, details] of Object.entries(methods)) {
+      console.log(`Path: ${path}`);
+      const something = {
+        name: details.description,
+        enabled: true,
+        selectors: [{
+          type: "HTTP",
+          path: path,
+          pathOperator: "EQUALS",
+          methods: ["GET"],
+        }],
+      }
     };
   
     flowsFromOpenAPI.push(something);
