@@ -75,12 +75,12 @@ function generateCRD(openApiData, propertiesData) {
     console.log(`Path: ${path}`);
     const something = {
       enabled: true,
-      selectors: [
+      selectors: [{
         type: "HTTP",
         path: "${path}",
         pathOperator: "EQUALS",
         methods: ["GET"],
-      ],
+      }],
     };
   
     flowsFromOpenAPI.push(something);
