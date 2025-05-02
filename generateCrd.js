@@ -69,7 +69,7 @@ function generateCRD(openApiData, propertiesData) {
   console.log(openApiData.paths);
 
   // Iterate over the paths
-  const paths = openApiSpec.paths;
+  const paths = openApiData.paths;
   let flowsFromOpenAPI = [];
   for (const [path, methods] of Object.entries(paths)) {
     console.log(`Path: ${path}`);
