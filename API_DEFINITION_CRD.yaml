@@ -45,9 +45,9 @@ spec:
     - name: "Place an order3"
       enabled: true
       selectors:
-        - type: "HTTP"
-          path: "/order3"
-          pathOperator: "EQUALS"
-          methods:
-            - "GET"
-            - "POST"
+      - type: "HTTP"
+        path: "/order3"
+        pathOperator: "EQUALS"
+        methods:
+        - "GET"
+        - "POST"
