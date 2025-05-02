@@ -81,7 +81,7 @@ function generateCRD(openApiData, propertiesData) {
           type: "HTTP",
           path: path,
           pathOperator: "EQUALS",
-          methods: ["GET"],
+          methods: [ methods ],
         }],
       };
       flowsFromOpenAPI.push(something);
