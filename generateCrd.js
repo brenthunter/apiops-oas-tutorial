@@ -83,10 +83,11 @@ function generateCRD(openApiData, propertiesData) {
           pathOperator: "EQUALS",
           methods: ["GET"],
         }],
-      }
+      };
+      flowsFromOpenAPI.push(something);
     };
   
-    flowsFromOpenAPI.push(something);
+    //flowsFromOpenAPI.push(something);
   
     // for (const [method, details] of Object.entries(methods)) {
     //   console.log(`  Method: ${method.toUpperCase()} - Description: ${details.description}`);
