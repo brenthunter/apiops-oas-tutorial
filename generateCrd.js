@@ -35,17 +35,17 @@ function generateCRD(openApiData, propertiesData) {
           enabled: true,
           selectors: [
             {
-              type: "\"HTTP\"",
-              path: "\"/\"",
-              pathOperator: "\"EQUALS\"",
+              type: 'HTTP',
+              path: '\',
+              pathOperator: 'EQUALS',
               methods: [ ],
             },
           ],
           request: [ {
-            name: "Rate Limit",
-            description: "Rate limiting",
+            name: 'Rate Limit',
+            description: 'Rate limiting',
             enabled: true,
-            policy: "\"rate-limit\"",
+            policy: 'rate-limit',
             configuration: {
               async: false,
               addHeaders: true,
@@ -53,7 +53,7 @@ function generateCRD(openApiData, propertiesData) {
                 useKeyOnly: false,
                 periodTime: 1,
                 limit: 5,
-                periodTimeUnit: "\"MINUTES\"",
+                periodTimeUnit: 'MINUTES',
               },
             },
           } ],
