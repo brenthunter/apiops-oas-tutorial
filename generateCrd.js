@@ -66,12 +66,7 @@ function generateCRD(openApiData, propertiesData) {
         },
       };
 
-  const flowsFromOpenAPI = openApiData.paths.forEach((element) => 
-    {
-      test: element,
-    },
-  );
-
+  const flowsFromOpenAPI = openApiData.paths.forEach((element) => console.log(element));
   
   const crd = {
     apiVersion: "gravitee.io/v1alpha1",
