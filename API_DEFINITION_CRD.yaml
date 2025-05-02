@@ -40,14 +40,44 @@ spec:
       description: API key plan needs a key to authenticate
       security:
         type: API_KEY
-      flows: []
+      flows:
+        - name: Rate Limiting Flow
+          enabled: true
+          selectors:
+            - type: HTTP
+              path: /
+              pathOperator: EQUALS
+              methods: []
+          request:
+            - name: Rate Limit
+              description: Standard rate limiting of 500 requests per minute (per consumer)
+              enabled: true
+              policy: rate-limit
+              configuration:
+                async: false
+                addHeaders: true
+                rate:
+                  useKeyOnly: false
+                  periodTime: 1
+                  limit: 500
+                  periodTimeUnit: MINUTES
+          response: []
+          subscribe: []
+          publish: []
   flows:
-    - name: "Place an order5"
+    - name: Returns a list of stuff
       enabled: true
       selectors:
-        - type: "HTTP"
-          path: "/order5"
-          pathOperator: "EQUALS"
+        - type: HTTP
+          path: /list
+          pathOperator: EQUALS
           methods:
-            - "GET"
-            - "POST"
+            - GET
+    - name: Create a new Pet
+      enabled: true
+      selectors:
+        - type: HTTP
+          path: /pets
+          pathOperator: EQUALS
+          methods:
+            - GET
