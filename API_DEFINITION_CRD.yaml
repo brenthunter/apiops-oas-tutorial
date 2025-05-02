@@ -48,4 +48,6 @@ spec:
         - type: "HTTP"
           path: "/order5"
           pathOperator: "EQUALS"
-          methods: [ GET, POST ]
+          methods:
+            - "GET"
+            - "POST"
