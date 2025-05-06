@@ -11,7 +11,7 @@ apiKeyEnabled: true
 environment: management-context-1
 
 # (Optional) Add all OpenAPI paths.  Creates flows for every path, including method(s) too.
-addOpenApiPathsToFlowsEnabled: false
+addOpenApiPathsToFlowsEnabled: true
 
 # (Optional) Use the corporate rate-limit configure.
-rateLimitingEnabled: false
+rateLimitingEnabled: true
