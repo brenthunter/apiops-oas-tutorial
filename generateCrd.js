@@ -89,14 +89,15 @@ function generateCRD(openApiData, propertiesData) {
   };
 
   var myJSONString = JSON.stringify(openApiData);
-  var strOpenApiData = myJSONString.replace(/\\n/g, "\\n")
-                                   .replace(/\\'/g, "\\'")
-                                   .replace(/\\"/g, '\\"')
-                                   .replace(/\\&/g, "\\&")
-                                   .replace(/\\r/g, "\\r")
-                                   .replace(/\\t/g, "\\t")
-                                   .replace(/\\b/g, "\\b")
-                                   .replace(/\\f/g, "\\f");
+  var strOpenApiData = myJSONString.replace(/[\\]/g, '\\\\')
+    .replace(/[\"]/g, '\\\"')
+    .replace(/[\/]/g, '\\/')
+    .replace(/[\b]/g, '\\b')
+    .replace(/[\f]/g, '\\f')
+    .replace(/[\n]/g, '\\n')
+    .replace(/[\r]/g, '\\r')
+    .replace(/[\t]/g, '\\t');
+
   console.log(strOpenApiData);
   
   const resources = propertiesData.addOpenApiSpecValidationEnabled
