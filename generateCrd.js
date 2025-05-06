@@ -106,7 +106,7 @@ function generateCRD(openApiData, propertiesData) {
         name: "OpenAPI Specification",
         type: "content-provider-inline-resource",
         configuration: {
-          content: strOpenApiData,
+          content: "'" + strOpenApiData "'",
         },
         enabled: true,
     }
