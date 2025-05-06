@@ -99,7 +99,10 @@ function generateCRD(openApiData, propertiesData) {
         enabled: true,
     }]
     : [ ];
-  resources[0].configuration.content = openApiData;
+  resources[0].configuration.content = openApiData.toString();
+  resources[0].configuration.content2 = JSON.stringify(openApiData);
+  resources[0].configuration.content3 = JSON.stringify(openApiData.toString());
+  resources[0].configuration.content4 = JSON.stringify(openApiData).toString();
   
   const crd = {
     apiVersion: "gravitee.io/v1alpha1",
