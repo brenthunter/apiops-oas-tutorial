@@ -74,7 +74,7 @@ function generateCRD(openApiData, propertiesData) {
       for (const [method, details] of Object.entries(methods)) {
         console.log(`Path: ${path}`);
         const tmpPath = {
-          name: details.description + " (" + method.toUpperCase() + " " + path + ")",
+          name: details.description,
           enabled: true,
           selectors: [{
             type: "HTTP",
