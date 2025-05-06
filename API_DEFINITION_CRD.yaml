@@ -42,22 +42,6 @@ spec:
         type: API_KEY
       flows: []
   flows:
-    - name: Returns a list of stuff
-      enabled: true
-      selectors:
-        - type: HTTP
-          path: /list
-          pathOperator: EQUALS
-          methods:
-            - GET
-    - name: Create a new Pet
-      enabled: true
-      selectors:
-        - type: HTTP
-          path: /pets
-          pathOperator: EQUALS
-          methods:
-            - POST
     - name: OpenAPI Specification Validation
       enabled: true
       selectors:
@@ -76,6 +60,22 @@ spec:
           policy: oas-validation
           configuration:
             resourceName: OpenAPI Specification
+    - name: Returns a list of stuff
+      enabled: true
+      selectors:
+        - type: HTTP
+          path: /list
+          pathOperator: EQUALS
+          methods:
+            - GET
+    - name: Create a new Pet
+      enabled: true
+      selectors:
+        - type: HTTP
+          path: /pets
+          pathOperator: EQUALS
+          methods:
+            - POST
   resources:
     - name: OpenAPI Specification
       type: content-provider-inline-resource
