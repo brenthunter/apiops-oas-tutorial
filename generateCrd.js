@@ -88,19 +88,8 @@ function generateCRD(openApiData, propertiesData) {
     }
   };
 
-  var myJSONString = JSON.stringify(openApiData).escape;
+  var myJSONString = escape(JSON.stringify(openApiData));
   console.log(myJSONString);
-  var strOpenApiData = myJSONString.replace(/[\\]/g, '\\\\')
-                                   .replace(/[\"]/g, '')
-                                   .replace(/[\/]/g, '\\/')
-                                   .replace(/[{]/g, '')
-                                   .replace(/[}]/g, '')
-                                   .replace(/[\n]/g, '\\n \\ \n \\ ')
-                                   .replace(/[,]/g, '\\n \\ \n \\ ')
-                                   .replace(/[\r]/g, '\\r')
-                                   .replace(/[\t]/g, '  ');
-
-  console.log(strOpenApiData);
   
   const resources = propertiesData.addOpenApiSpecValidationEnabled
     ? {
