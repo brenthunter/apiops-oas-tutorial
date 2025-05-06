@@ -64,20 +64,4 @@ spec:
           response: []
           subscribe: []
           publish: []
-  flows:
-    - name: Returns a list of stuff (GET /list)
-      enabled: true
-      selectors:
-        - type: HTTP
-          path: /list
-          pathOperator: EQUALS
-          methods:
-            - GET
-    - name: Create a new Pet (POST /pets)
-      enabled: true
-      selectors:
-        - type: HTTP
-          path: /pets
-          pathOperator: EQUALS
-          methods:
-            - POST
+  flows: []
