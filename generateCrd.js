@@ -91,10 +91,10 @@ function generateCRD(openApiData, propertiesData) {
   const resources = propertiesData.addOpenApiSpecValidationEnabled
     ? {
         resources: {
-          name: "OpenAPI Specification"
-          type: "content-provider-inline-resource"
+          name: "OpenAPI Specification",
+          type: "content-provider-inline-resource",
           configuration: {
-            content: openApiData
+            content: openApiData,
           },
           enabled: true,
       },
