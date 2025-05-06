@@ -89,6 +89,7 @@ function generateCRD(openApiData, propertiesData) {
   };
 
   var myJSONString = JSON.stringify(openApiData);
+  console.log(myJSONString);
   var strOpenApiData = myJSONString.replace(/[\\]/g, '\\\\')
                                    .replace(/[\"]/g, '')
                                    .replace(/[\/]/g, '\\/')
