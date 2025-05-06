@@ -88,23 +88,23 @@ function generateCRD(openApiData, propertiesData) {
     }
   };
 
-  var myJSONString = JSON.stringify(openApiData);
-  console.log(myJSONString);
-  
-  const resources = propertiesData.addOpenApiSpecValidationEnabled
-    ? [{
-        name: "OpenAPI Specification",
-        type: "content-provider-inline-resource",
-        configuration: {},
-        enabled: true,
-    }]
-    : [ ];
-  // Step 1: Convert to YAML (formatted)
-  let yamlString = yaml.dump(openApiData, { lineWidth: 80 });
-  // Step 2: Escape for use as a JavaScript string literal
-  let escapedYamlStringLiteral = JSON.stringify(yamlString);
-  resources[0].configuration.content = escapedYamlStringLiteral;
-  
+  let resources = [];
+  if (propertiesData.addOpenApiSpecValidationEnabled) {
+    resources = [{
+          name: "OpenAPI Specification",
+          type: "content-provider-inline-resource",
+          configuration: {},
+          enabled: true,
+    }];    
+    // Step 1: Convert to YAML (formatted)
+    let yamlString = yaml.dump(openApiData, { lineWidth: 80 });
+    // Step 2: Escape for use as a JavaScript string literal
+    let escapedYamlStringLiteral = JSON.stringify(yamlString);
+    resources[0].configuration.content = escapedYamlStringLiteral;
+  };
+
+  // Main CRD Base Template
+  /////////////////////////
   const crd = {
     apiVersion: "gravitee.io/v1alpha1",
     kind: "ApiV4Definition",
