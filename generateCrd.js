@@ -126,7 +126,7 @@ function generateCRD(openApiData, propertiesData) {
         }
       }],      
     };
-    flowsFromOpenAPI.push(flowsOpenApiSpec);
+    flowsFromOpenAPI.unshift(flowsOpenApiSpec);
   };
 
   // Main CRD Base Template
