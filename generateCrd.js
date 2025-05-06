@@ -72,7 +72,6 @@ function generateCRD(openApiData, propertiesData) {
     const paths = openApiData.paths;
     for (const [path, methods] of Object.entries(paths)) {
       for (const [method, details] of Object.entries(methods)) {
-        console.log(`Path: ${path}`);
         const tmpPath = {
           name: details.description,
           enabled: true,
@@ -101,6 +100,33 @@ function generateCRD(openApiData, propertiesData) {
     // Step 2: Escape for use as a JavaScript string literal
     let escapedYamlStringLiteral = JSON.stringify(yamlString);
     resources[0].configuration.content = escapedYamlStringLiteral;
+    // Step 3: Update existing flows? with OpenAPI Spec Validator Policy configuration
+    let flowsOpenApiSpec = {
+      name: "OpenAPI Specification Validation",
+      enabled: true,
+      selectors: [{
+        type: "HTTP",
+        path: "/",
+        pathOperator: "STARTS_WITH",
+      }],
+      request: [{
+        name: "OpenAPI Specification Validation",
+        enabled: true,
+        policy: "oas-validation",
+        configuration: {
+          resourceName: "OpenAPI Specification",
+        }
+      }],
+      response: [{
+        name: "OpenAPI Specification Validation",
+        enabled: true,
+        policy: "oas-validation",
+        configuration: {
+          resourceName: "OpenAPI Specification",
+        }
+      }],      
+    };
+    flowsFromOpenAPI.push(flowsOpenApiSpec);
   };
 
   // Main CRD Base Template
