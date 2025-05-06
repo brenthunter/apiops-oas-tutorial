@@ -62,23 +62,20 @@ spec:
     - name: OpenAPI Specification
       type: content-provider-inline-resource
       configuration:
-        content:
-          openapi: 3.1.0
-          info:
-            version: 1.0.0
-            title: Petstore API
-            description: A sample API to illustrate OpenAPI concepts
-          paths:
-            /list:
-              get:
-                description: Returns a list of stuff
-                responses:
-                  '200':
-                    description: Successful response
-            /pets:
-              post:
-                description: Create a new Pet
-                responses:
-                  '201':
-                    description: Created
+        content: '[object Object]'
+        content2: >-
+          {"openapi":"3.1.0","info":{"version":"1.0.0","title":"Petstore
+          API","description":"A sample API to illustrate OpenAPI
+          concepts"},"paths":{"/list":{"get":{"description":"Returns a list of
+          stuff","responses":{"200":{"description":"Successful
+          response"}}}},"/pets":{"post":{"description":"Create a new
+          Pet","responses":{"201":{"description":"Created"}}}}}}
+        content3: '"[object Object]"'
+        content4: >-
+          {"openapi":"3.1.0","info":{"version":"1.0.0","title":"Petstore
+          API","description":"A sample API to illustrate OpenAPI
+          concepts"},"paths":{"/list":{"get":{"description":"Returns a list of
+          stuff","responses":{"200":{"description":"Successful
+          response"}}}},"/pets":{"post":{"description":"Create a new
+          Pet","responses":{"201":{"description":"Created"}}}}}}
       enabled: true
