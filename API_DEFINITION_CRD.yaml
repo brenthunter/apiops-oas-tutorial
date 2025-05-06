@@ -54,12 +54,6 @@ spec:
           policy: oas-validation
           configuration:
             resourceName: OpenAPI Specification
-      response:
-        - name: OpenAPI Specification Validation
-          enabled: true
-          policy: oas-validation
-          configuration:
-            resourceName: OpenAPI Specification
     - name: Returns a list of stuff
       enabled: true
       selectors:
