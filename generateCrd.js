@@ -87,6 +87,19 @@ function generateCRD(openApiData, propertiesData) {
       }
     }
   };
+
+  const resources = propertiesData.addOpenApiSpecValidationEnabled
+    ? {
+        resources: {
+          name: "OpenAPI Specification"
+          type: "content-provider-inline-resource"
+          configuration: {
+            content: openApiData
+          },
+          enabled: true,
+      },
+    }
+    : [ ];
   
   const crd = {
     apiVersion: "gravitee.io/v1alpha1",
@@ -148,6 +161,7 @@ function generateCRD(openApiData, propertiesData) {
       },
       plans: plans,
       flows: flowsFromOpenAPI,
+      resources: resources,
     },
   };
   return yaml.dump(crd);
