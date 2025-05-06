@@ -41,50 +41,33 @@ spec:
       security:
         type: API_KEY
       flows: []
- flows:
- - name: "OpenAPI Specification Validation"
-   enabled: true
-   selectors:
-   - type: "HTTP"
-     path: "/"
-     pathOperator: "STARTS_WITH"
-   request:
-   - name: "OpenAPI Specification Validation"
-     enabled: true
-     policy: "oas-validation"
-     configuration:
-       resourceName: "OpenAPI Specification"
-   response:
-   - name: "OpenAPI Specification Validation"
-     enabled: true
-     policy: "oas-validation"
-     configuration:
-       resourceName: "OpenAPI Specification"
- - name: Returns a list of stuff
-   enabled: true
-   selectors:
-     - type: HTTP
-       path: /list
-       pathOperator: EQUALS
-       methods:
-         - GET
- - name: Create a new Pet
-   enabled: true
-   selectors:
-     - type: HTTP
-       path: /pets
-       pathOperator: EQUALS
-       methods:
-         - POST
- resources:
-   - name: OpenAPI Specification
-     type: content-provider-inline-resource
-     configuration:
-       content: "openapi: 3.1.0\ninfo:\n  version: 1.0.0\n  title: Petstore API\n \
-          \ description: A sample API to illustrate OpenAPI concepts\npaths:\n \
-          \ /list:\n    get:\n      description: Returns a list of stuff\n \
-          \ responses:\n        '200':\n          description: Successful \
-          \ response\n  /pets:\n    post:\n      description: Create a new \
-          \ Pet\n      responses:\n        '201':\n          description: \
-          \ Created\n"
-     enabled: true
+  flows:
+    - name: Returns a list of stuff
+      enabled: true
+      selectors:
+        - type: HTTP
+          path: /list
+          pathOperator: EQUALS
+          methods:
+            - GET
+    - name: Create a new Pet
+      enabled: true
+      selectors:
+        - type: HTTP
+          path: /pets
+          pathOperator: EQUALS
+          methods:
+            - POST
+  resources:
+    - name: OpenAPI Specification
+      type: content-provider-inline-resource
+      configuration:
+        content: >-
+          "openapi: 3.1.0\ninfo:\n  version: 1.0.0\n  title: Petstore API\n 
+          description: A sample API to illustrate OpenAPI concepts\npaths:\n 
+          /list:\n    get:\n      description: Returns a list of stuff\n     
+          responses:\n        '200':\n          description: Successful
+          response\n  /pets:\n    post:\n      description: Create a new
+          Pet\n      responses:\n        '201':\n          description:
+          Created\n"
+      enabled: true
