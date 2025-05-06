@@ -15,3 +15,6 @@ addOpenApiPathsToFlowsEnabled: true
 
 # (Optional) Use the corporate rate-limit configure.
 rateLimitingEnabled: false
+
+# (Optional) Add OpenAPI Spec Validation.
+addOpenApiSpecValidationEnabled: false
