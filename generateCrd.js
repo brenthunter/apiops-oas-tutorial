@@ -95,12 +95,11 @@ function generateCRD(openApiData, propertiesData) {
     ? [{
         name: "OpenAPI Specification",
         type: "content-provider-inline-resource",
-        configuration: {
-          content: myJSONString,
-        },
+        configuration: {},
         enabled: true,
     }]
     : [ ];
+  resources[0].configuration.content = openApiData;
   
   const crd = {
     apiVersion: "gravitee.io/v1alpha1",
