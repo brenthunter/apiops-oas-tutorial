@@ -88,7 +88,7 @@ function generateCRD(openApiData, propertiesData) {
     }
   };
 
-  var myJSONString = JSON.stringify(openApiData).toString();
+  var myJSONString = JSON.stringify(openApiData);
   console.log(myJSONString);
   
   const resources = propertiesData.addOpenApiSpecValidationEnabled
@@ -101,6 +101,11 @@ function generateCRD(openApiData, propertiesData) {
     : [ ];
   resources[0].configuration.content = JSON.stringify(openApiData);
   resources[0].configuration.content1 = JSON.stringify(openApiData[0]);
+
+  myJSONString = myJSONString.replace(/"/g, '');
+  myJSONString = myJSONString.replace(/\n/g, '\ \\n\ ');
+
+  resources[0].configuration.content2 = myJSONString;
   
   const crd = {
     apiVersion: "gravitee.io/v1alpha1",
