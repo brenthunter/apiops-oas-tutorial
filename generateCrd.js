@@ -94,8 +94,8 @@ function generateCRD(openApiData, propertiesData) {
                                    .replace(/[\/]/g, '\\/')
                                    .replace(/[{]/g, '')
                                    .replace(/[}]/g, '')
-                                   .replace(/[\n]/g, '\\n \\ \n \\')
-                                   .replace(/[,]/g, '\\n \\ \n \\')
+                                   .replace(/[\n]/g, '\\n \\ \n \\ ')
+                                   .replace(/[,]/g, '\\n \\ \n \\ ')
                                    .replace(/[\r]/g, '\\r')
                                    .replace(/[\t]/g, '  ');
 
