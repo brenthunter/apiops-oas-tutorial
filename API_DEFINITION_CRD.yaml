@@ -62,11 +62,13 @@ spec:
     name: OpenAPI Specification
     type: content-provider-inline-resource
     configuration:
-      content: >-
-        'openapi:3.1.0\ninfo:version:1.0.0\ntitle:Petstore API\ndescription:A
-        sample API to illustrate OpenAPI
-        concepts\npaths:\/list:get:description:Returns a list of
-        stuff\nresponses:200:description:Successful
-        response\n\/pets:post:description:Create a new
-        Pet\nresponses:201:description:Created'
+      content: |-
+        'openapi:3.1.0\n \ 
+         \info:version:1.0.0\n \ 
+         \title:Petstore API\n \ 
+         \description:A sample API to illustrate OpenAPI concepts\n \ 
+         \paths:\/list:get:description:Returns a list of stuff\n \ 
+         \responses:200:description:Successful response\n \ 
+         \\/pets:post:description:Create a new Pet\n \ 
+         \responses:201:description:Created'
     enabled: true
