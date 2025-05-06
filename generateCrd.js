@@ -88,12 +88,23 @@ function generateCRD(openApiData, propertiesData) {
     }
   };
 
+  myJSONString = JSON.stringify(openApiData);
+  var strOpenApiData = myJSONString.replace(/\\n/g, "\\n")
+                                   .replace(/\\'/g, "\\'")
+                                   .replace(/\\"/g, '\\"')
+                                   .replace(/\\&/g, "\\&")
+                                   .replace(/\\r/g, "\\r")
+                                   .replace(/\\t/g, "\\t")
+                                   .replace(/\\b/g, "\\b")
+                                   .replace(/\\f/g, "\\f");
+  console.log(strOpenApiData);
+  
   const resources = propertiesData.addOpenApiSpecValidationEnabled
     ? {
         name: "OpenAPI Specification",
         type: "content-provider-inline-resource",
         configuration: {
-          content: JSON.stringify(openApiData),
+          content: strOpenApiData,
         },
         enabled: true,
     }
