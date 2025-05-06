@@ -42,24 +42,24 @@ spec:
         type: API_KEY
       flows: []
  flows:
- -  name: "OpenAPI Specification Validation"
-    enabled: true
-    selectors:
-    - type: "HTTP"
-      path: "/"
-      pathOperator: "STARTS_WITH"
-    request:
-    - name: "OpenAPI Specification Validation"
-      enabled: true
-      policy: "oas-validation"
-      configuration:
-        resourceName: "OpenAPI Specification"
-    response:
-    - name: "OpenAPI Specification Validation"
-      enabled: true
-      policy: "oas-validation"
-      configuration:
-        resourceName: "OpenAPI Specification"
+ - name: "OpenAPI Specification Validation"
+   enabled: true
+   selectors:
+   - type: "HTTP"
+     path: "/"
+     pathOperator: "STARTS_WITH"
+   request:
+   - name: "OpenAPI Specification Validation"
+     enabled: true
+     policy: "oas-validation"
+     configuration:
+       resourceName: "OpenAPI Specification"
+   response:
+   - name: "OpenAPI Specification Validation"
+     enabled: true
+     policy: "oas-validation"
+     configuration:
+       resourceName: "OpenAPI Specification"
  - name: Returns a list of stuff
    enabled: true
    selectors:
