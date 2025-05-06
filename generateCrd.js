@@ -100,15 +100,12 @@ function generateCRD(openApiData, propertiesData) {
     }]
     : [ ];
   resources[0].configuration.content = JSON.stringify(openApiData);
-  resources[0].configuration.content1 = JSON.stringify(openApiData[0]);
 
-  myJSONString = myJSONString.replace(/"/g, '');
-  myJSONString = myJSONString.replace(/,/g, ' \\ \n \\ ');
-  
-  myJSONString = myJSONString.replace(/{/g, '');
-  myJSONString = myJSONString.replace(/}/g, '\\ \n \\ ');
-
-  resources[0].configuration.content2 = myJSONString;
+  // Step 1: Convert to YAML (formatted)
+  let yamlString = yaml.dump(openApiData, { lineWidth: -1 });
+  // Step 2: Escape for use as a JavaScript string literal
+  let escapedYamlStringLiteral = JSON.stringify(yamlString);
+  resources[0].configuration.content2 = escapedYamlStringLiteral;
   
   const crd = {
     apiVersion: "gravitee.io/v1alpha1",
