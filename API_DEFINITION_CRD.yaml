@@ -62,6 +62,10 @@ spec:
     name: OpenAPI Specification
     type: content-provider-inline-resource
     configuration:
-      content: >-
-        %7B%22openapi%22%3A%223.1.0%22%2C%22info%22%3A%7B%22version%22%3A%221.0.0%22%2C%22title%22%3A%22Petstore%20API%22%2C%22description%22%3A%22A%20sample%20API%20to%20illustrate%20OpenAPI%20concepts%22%7D%2C%22paths%22%3A%7B%22/list%22%3A%7B%22get%22%3A%7B%22description%22%3A%22Returns%20a%20list%20of%20stuff%22%2C%22responses%22%3A%7B%22200%22%3A%7B%22description%22%3A%22Successful%20response%22%7D%7D%7D%7D%2C%22/pets%22%3A%7B%22post%22%3A%7B%22description%22%3A%22Create%20a%20new%20Pet%22%2C%22responses%22%3A%7B%22201%22%3A%7B%22description%22%3A%22Created%22%7D%7D%7D%7D%7D%7D
-    enabled: true
+      content: "openapi: 3.1.0\ninfo:\n  version: 1.0.0\n  title: Petstore API\n \
+        \ description: A sample API to illustrate OpenAPI concepts\npaths:\n  /list:\n\
+        \    get:\n      description: Returns a list of stuff              \n    \
+        \  responses:\n        '200':\n          description: Successful response\n\
+        \  /order:\n    post:\n      description: Creates an order          \n   \
+        \   responses:\n        '201':\n          description: Accepted"
+      enabled: true
