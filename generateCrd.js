@@ -102,8 +102,10 @@ function generateCRD(openApiData, propertiesData) {
   resources[0].configuration.content = JSON.stringify(openApiData);
   resources[0].configuration.content1 = JSON.stringify(openApiData[0]);
 
+  myJSONString = myJSONString.replace(/{/g, '\\n');
+  myJSONString = myJSONString.replace(/}/g, '\\n');
   myJSONString = myJSONString.replace(/"/g, '');
-  myJSONString = myJSONString.replace(/\n/g, '\ \\n\ ');
+  myJSONString = myJSONString.replace(/\\n/g, '\ \\n\ ');
 
   resources[0].configuration.content2 = myJSONString;
   
