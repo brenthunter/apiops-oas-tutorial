@@ -88,7 +88,7 @@ function generateCRD(openApiData, propertiesData) {
     }
   };
 
-  var myJSONString = JSON.stringify(openApiData);
+  var myJSONString = JSON.stringify(openApiData).escape;
   console.log(myJSONString);
   var strOpenApiData = myJSONString.replace(/[\\]/g, '\\\\')
                                    .replace(/[\"]/g, '')
@@ -107,7 +107,7 @@ function generateCRD(openApiData, propertiesData) {
         name: "OpenAPI Specification",
         type: "content-provider-inline-resource",
         configuration: {
-          content: $(myJSONString),
+          content: myJSONString,
         },
         enabled: true,
     }
