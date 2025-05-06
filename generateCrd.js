@@ -88,8 +88,7 @@ function generateCRD(openApiData, propertiesData) {
     }
   };
 
-  // var myJSONString = JSON.stringify(openApiData);
-  var myJSONString = openApiData.toString();
+  var myJSONString = JSON.stringify(openApiData).toString();
   console.log(myJSONString);
   
   const resources = propertiesData.addOpenApiSpecValidationEnabled
