@@ -41,23 +41,41 @@ spec:
       security:
         type: API_KEY
       flows: []
-  flows:
-    - name: Returns a list of stuff
+ flows:
+ -  name: "OpenAPI Specification Validation"
+    enabled: true
+    selectors:
+    - type: "HTTP"
+      path: "/"
+      pathOperator: "STARTS_WITH"
+    request:
+    - name: "OpenAPI Specification Validation"
       enabled: true
-      selectors:
-        - type: HTTP
-          path: /list
-          pathOperator: EQUALS
-          methods:
-            - GET
-    - name: Create a new Pet
+      policy: "oas-validation"
+      configuration:
+        resourceName: "OpenAPI Specification"
+    response:
+    - name: "OpenAPI Specification Validation"
       enabled: true
-      selectors:
-        - type: HTTP
-          path: /pets
-          pathOperator: EQUALS
-          methods:
-            - POST
+      policy: "oas-validation"
+      configuration:
+        resourceName: "OpenAPI Specification"
+ - name: Returns a list of stuff
+   enabled: true
+   selectors:
+     - type: HTTP
+       path: /list
+       pathOperator: EQUALS
+       methods:
+         - GET
+ - name: Create a new Pet
+   enabled: true
+   selectors:
+     - type: HTTP
+       path: /pets
+       pathOperator: EQUALS
+       methods:
+         - POST
   resources:
     - name: OpenAPI Specification
       type: content-provider-inline-resource
