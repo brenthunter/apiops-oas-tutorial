@@ -92,14 +92,14 @@ function generateCRD(openApiData, propertiesData) {
   console.log(myJSONString);
   
   const resources = propertiesData.addOpenApiSpecValidationEnabled
-    ? {
+    ? [{
         name: "OpenAPI Specification",
         type: "content-provider-inline-resource",
         configuration: {
           content: myJSONString,
         },
         enabled: true,
-    }
+    }]
     : [ ];
   
   const crd = {
