@@ -102,7 +102,7 @@ function generateCRD(openApiData, propertiesData) {
     var NEWescapedYamlStringLiteral = "";
     escapedYamlStringLiteral.split("\\n").forEach((line) => {
       console.log("thisline: " + line);
-      NEWescapedYamlStringLiteral += "\\ " + line + " \n";
+      NEWescapedYamlStringLiteral += line + " \n";
     });
     console.log("final1: " + NEWescapedYamlStringLiteral);
     NEWescapedYamlStringLiteral = NEWescapedYamlStringLiteral.replace('\\ \"', '');
