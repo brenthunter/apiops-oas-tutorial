@@ -100,10 +100,10 @@ function generateCRD(openApiData, propertiesData) {
     // Step 2: Escape for use as a JavaScript string literal
     let escapedYamlStringLiteral = JSON.stringify(yamlString);
     var NEWescapedYamlStringLiteral = "";
-    escapedYamlStringLiteral.split("\n").forEach(line => 
+    escapedYamlStringLiteral.split("\n").forEach((line) => {
       console.log("thisline: " + line);
       NEWescapedYamlStringLiteral += "\\ " + line + " \\";
-    );
+    });
     resources[0].configuration.content = escapedYamlStringLiteral;
     resources[0].configuration.contentNEW = NEWescapedYamlStringLiteral;
     
