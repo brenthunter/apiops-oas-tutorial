@@ -60,6 +60,14 @@ spec:
           policy: oas-validation
           configuration:
             resourceName: OpenAPI Specification
+    - name: Root path for only Echo response
+      enabled: true
+      selectors:
+        - type: HTTP
+          path: /
+          pathOperator: EQUALS
+          methods:
+            - GET
     - name: Returns a list of stuff
       enabled: true
       selectors:
@@ -87,6 +95,12 @@ spec:
             title: Petstore API 
             description: A sample API to illustrate OpenAPI concepts 
           paths: 
+            /: 
+              get: 
+                description: Root path for only Echo response 
+                responses: 
+                  '200': 
+                    description: Successful response 
             /list: 
               get: 
                 description: Returns a list of stuff 
