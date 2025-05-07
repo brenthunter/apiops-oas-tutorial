@@ -106,7 +106,7 @@ function generateCRD(openApiData, propertiesData) {
     });
     console.log("final1: " + NEWescapedYamlStringLiteral);
     NEWescapedYamlStringLiteral = NEWescapedYamlStringLiteral.replace('\\ \"', '');
-    NEWescapedYamlStringLiteral = NEWescapedYamlStringLiteral.replace('\\ \" \\', '\ \"');
+    NEWescapedYamlStringLiteral = NEWescapedYamlStringLiteral.replace('\\ \" \\', '\\ \"');
     console.log("final2: " + NEWescapedYamlStringLiteral);
     resources[0].configuration.content = NEWescapedYamlStringLiteral;
     
