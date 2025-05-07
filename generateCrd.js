@@ -102,11 +102,12 @@ function generateCRD(openApiData, propertiesData) {
     var NEWescapedYamlStringLiteral = "";
     escapedYamlStringLiteral.split("\\n").forEach((line) => {
       console.log("thisline: " + line);
-      NEWescapedYamlStringLiteral += line + " \n";
+      if !(line.contains(" \" ") {
+        NEWescapedYamlStringLiteral += line + " \n";
+      }
     });
     console.log("final1: " + NEWescapedYamlStringLiteral);
     NEWescapedYamlStringLiteral = NEWescapedYamlStringLiteral.replace('\"', '');
-    NEWescapedYamlStringLiteral = NEWescapedYamlStringLiteral.replace('\\ \" \\', '');
     console.log("final2: " + NEWescapedYamlStringLiteral);
     resources[0].configuration.content = NEWescapedYamlStringLiteral.toString();
     
