@@ -80,25 +80,12 @@ spec:
     - name: OpenAPI Specification
       type: content-provider-inline-resource
       configuration:
-        content: |-
-          "openapi: 3.1.0 \
-          \ info: \
-          \   version: 1.0.0 \
-          \   title: Petstore API \
-          \   description: A sample API to illustrate OpenAPI concepts \
-          \ paths: \
-          \   /list: \
-          \     get: \
-          \       description: Returns a list of stuff \
-          \       responses: \
-          \         '200': \
-          \           description: Successful response \
-          \   /pets: \
-          \     post: \
-          \       description: Create a new Pet \
-          \       responses: \
-          \         '201': \
-          \           description: Created \
-
-          "
+        content: >-
+          "openapi: 3.1.0 \n\ info: \n\   version: 1.0.0 \n\   title: Petstore
+          API \n\   description: A sample API to illustrate OpenAPI concepts \n\
+          paths: \n\   /list: \n\     get: \n\       description: Returns a list
+          of stuff \n\       responses: \n\         '200': \n\          
+          description: Successful response \n\   /pets: \n\     post: \n\      
+          description: Create a new Pet \n\       responses: \n\         '201':
+          \n\           description: Created \nn"
       enabled: true
