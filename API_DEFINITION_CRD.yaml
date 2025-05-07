@@ -106,12 +106,15 @@ spec:
                         schema: 
                           type: object 
                           properties: 
-                            id: 
-                              type: integer 
+                            bodySize: 
+                              type: string 
                               description: The user ID. 
-                            username: 
+                            headers: 
                               type: string 
                               description: The user name. 
+                            query_params: 
+                              type: string 
+                              description: Something else. 
             /list: 
               get: 
                 description: Returns a list of stuff 
