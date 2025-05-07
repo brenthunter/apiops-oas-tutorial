@@ -96,13 +96,13 @@ function generateCRD(openApiData, propertiesData) {
           enabled: true,
     }];    
     // Step 1: Convert to YAML (formatted)
-    let yamlString = yaml.dump(openApiData, { lineWidth: -1 });
+    let yamlString = yaml.dump(openApiData, { lineWidth: 80 });
     // Step 2: Escape for use as a JavaScript string literal
     let escapedYamlStringLiteral = JSON.stringify(yamlString);
     var NEWescapedYamlStringLiteral = "";
     escapedYamlStringLiteral.split("\\n").forEach((line) => {
-      console.log("thisline: " + line);
       if (!line.includes(" \" ")) {
+        console.log("adding thisline: " + line);
         NEWescapedYamlStringLiteral += line + " \n";
       }
     });
