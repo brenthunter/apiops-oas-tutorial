@@ -10,20 +10,20 @@ paths:
       responses:
         '200':
           description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  bodySize:
-                    type: string
-                    description: The user ID.
-                  headers:
-                    type: string
-                    description: The user name.
-                  query_params:
-                    type: string
-                    description: Something else.
+#          content:
+#            application/json:
+#              schema:
+#                type: object
+#                properties:
+#                  bodySize:
+#                    type: string
+#                    description: Displays the size of the original request body.
+#                  headers:
+#                    type: string
+#                    description: Displays all the headers from the original request.
+#                  query_params:
+#                    type: string
+#                    description: Displays all the query parameters from the original request.
   /list:
     get:
       description: Returns a list of stuff              
