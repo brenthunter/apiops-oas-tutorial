@@ -124,20 +124,6 @@ spec:
                 responses: 
                   '200': 
                     description: Successful response 
-                    content: 
-                      application/json: 
-                        schema: 
-                          type: object 
-                          properties: 
-                            bodySize: 
-                              type: string 
-                              description: The user ID. 
-                            headers: 
-                              type: string 
-                              description: The user name. 
-                            query_params: 
-                              type: string 
-                              description: Something else. 
             /list: 
               get: 
                 description: Returns a list of stuff 
