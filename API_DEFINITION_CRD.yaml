@@ -80,8 +80,8 @@ spec:
     - name: OpenAPI Specification
       type: content-provider-inline-resource
       configuration:
-        content: |
-          openapi: 3.1.0 \
+        content: |-
+          "openapi: 3.1.0 \
           \ info: \
           \   version: 1.0.0 \
           \   title: Petstore API \
@@ -99,5 +99,6 @@ spec:
           \       responses: \
           \         '201': \
           \           description: Created \
-          \ "
+
+          "
       enabled: true
