@@ -27,7 +27,7 @@ jobs:
         run: npm install js-yaml
 
       - name: Run CRD generation script
-        run: node generateCrd.js openapi.yaml properties.yaml
+        run: node .automation/generateCrd.js openapi.yaml properties.yaml
 
       - name: GitHub Commit Push File
         uses: maxgfr/github-commit-push-file@v0.0.6
