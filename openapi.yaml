@@ -4,6 +4,12 @@ info:
   title: Petstore API
   description: A sample API to illustrate OpenAPI concepts
 paths:
+  /:
+    get:
+      description: Root path for only Echo response             
+      responses:
+        '200':
+          description: Successful response
   /list:
     get:
       description: Returns a list of stuff              
