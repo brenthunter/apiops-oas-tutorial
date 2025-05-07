@@ -101,7 +101,7 @@ function generateCRD(openApiData, propertiesData) {
     let escapedYamlStringLiteral = JSON.stringify(yamlString);
     var NEWescapedYamlStringLiteral = "";
     escapedYamlStringLiteral.split("\\n").forEach((line) => {
-      if (!line.includes(" \" ")) {
+      if (!line == "\"") {
         console.log("adding thisline: " + line);
         NEWescapedYamlStringLiteral += line + " \n";
       }
