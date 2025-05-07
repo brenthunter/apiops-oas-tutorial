@@ -104,8 +104,10 @@ function generateCRD(openApiData, propertiesData) {
       console.log("thisline: " + line);
       NEWescapedYamlStringLiteral += "\\ " + line + " \\\n";
     });
-    resources[0].configuration.content = escapedYamlStringLiteral;
-    resources[0].configuration.contentNEW = NEWescapedYamlStringLiteral;
+    NEWescapedYamlStringLiteral.replace("\\ \"", "");
+    NEWescapedYamlStringLiteral.replace("\\ \" \\", "\ \"");
+    console.log("final: " + NEWescapedYamlStringLiteral);
+    resources[0].configuration.content = NEWescapedYamlStringLiteral;
     
     // Step 3: Update existing flows? with OpenAPI Spec Validator Policy configuration
     let flowsOpenApiSpec = {
