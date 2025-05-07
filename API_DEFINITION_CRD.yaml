@@ -40,8 +40,49 @@ spec:
       description: API key plan needs a key to authenticate
       security:
         type: API_KEY
-      flows: []
+      flows:
+        - name: Rate Limiting Flow
+          enabled: true
+          selectors:
+            - type: HTTP
+              path: /
+              pathOperator: EQUALS
+              methods: []
+          request:
+            - name: Rate Limit
+              description: Standard rate limiting of 500 requests per minute (per consumer)
+              enabled: true
+              policy: rate-limit
+              configuration:
+                async: false
+                addHeaders: true
+                rate:
+                  useKeyOnly: false
+                  periodTime: 1
+                  limit: 500
+                  periodTimeUnit: MINUTES
+          response: []
+          subscribe: []
+          publish: []
   flows:
+    - name: OpenAPI Specification Validation
+      enabled: true
+      selectors:
+        - type: HTTP
+          path: /
+          pathOperator: STARTS_WITH
+      request:
+        - name: OpenAPI Specification Validation
+          enabled: true
+          policy: oas-validation
+          configuration:
+            resourceName: OpenAPI Specification
+      response:
+        - name: OpenAPI Specification Validation
+          enabled: true
+          policy: oas-validation
+          configuration:
+            resourceName: OpenAPI Specification
     - name: Root path for only Echo response
       enabled: true
       selectors:
@@ -66,4 +107,47 @@ spec:
           pathOperator: EQUALS
           methods:
             - POST
-  resources: []
+  resources:
+    - name: OpenAPI Specification
+      type: content-provider-inline-resource
+      configuration:
+        content: |
+          openapi: 3.1.0 
+          info: 
+            version: 1.0.0 
+            title: Petstore API 
+            description: A sample API to illustrate OpenAPI concepts 
+          paths: 
+            /: 
+              get: 
+                description: Root path for only Echo response 
+                responses: 
+                  '200': 
+                    description: Successful response 
+                    content: 
+                      application/json: 
+                        schema: 
+                          type: object 
+                          properties: 
+                            bodySize: 
+                              type: string 
+                              description: The user ID. 
+                            headers: 
+                              type: string 
+                              description: The user name. 
+                            query_params: 
+                              type: string 
+                              description: Something else. 
+            /list: 
+              get: 
+                description: Returns a list of stuff 
+                responses: 
+                  '200': 
+                    description: Successful response 
+            /pets: 
+              post: 
+                description: Create a new Pet 
+                responses: 
+                  '201': 
+                    description: Created 
+      enabled: true
