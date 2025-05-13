@@ -15,7 +15,7 @@ environment: management-context-1
 # (Optional) Add all OpenAPI paths.  Creates flows for every path, including method(s) too.
 addOpenApiPathsToFlowsEnabled: false
 
-# (Optional) Use the corporate rate-limit configure.
+# (Optional) Use the corporate rate-limit configure..
 rateLimitingEnabled: true
 
 # (Optional) Add OpenAPI Spec Validation.
