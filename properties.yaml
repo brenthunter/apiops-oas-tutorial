@@ -16,7 +16,7 @@ environment: management-context-1
 addOpenApiPathsToFlowsEnabled: false
 
 # (Optional) Use the corporate rate-limit configure..
-rateLimitingEnabled: true
+rateLimitingEnabled: false
 
 # (Optional) Add OpenAPI Spec Validation.
 addOpenApiSpecValidationEnabled: false
