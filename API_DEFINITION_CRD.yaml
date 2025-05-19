@@ -1,0 +1,45 @@
+apiVersion: gravitee.io/v1alpha1
+kind: ApiV4Definition
+metadata:
+  name: generated-crd
+  namespace: default
+spec:
+  name: Petstore API
+  description: A sample API to illustrate OpenAPI concepts
+  version: 1.0.0
+  type: PROXY
+  definitionContext:
+    origin: KUBERNETES
+    syncFrom: MANAGEMENT
+  contextRef:
+    name: management-context-1
+    namespace: default
+  listeners:
+    - type: HTTP
+      paths:
+        - path: /petstore
+      entrypoints:
+        - type: http-proxy
+          qos: AUTO
+  endpointGroups:
+    - name: Default HTTP proxy group
+      type: http-proxy
+      endpoints:
+        - name: Default HTTP proxy
+          type: http-proxy
+          inheritConfiguration: false
+          configuration:
+            target: https://api.gravitee.io/echo
+          secondary: false
+  flowExecution:
+    mode: DEFAULT
+    matchRequired: false
+  plans:
+    API_KEY:
+      name: API Key plan
+      description: API key plan needs a key to authenticate
+      security:
+        type: API_KEY
+      flows: []
+  flows: []
+  resources: []
