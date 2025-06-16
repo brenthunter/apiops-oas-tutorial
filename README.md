@@ -25,5 +25,6 @@ argocd app create apiops --repo https://github.com/jmcx/apiops-oas-tutorial.git 
 ```
 
 ```sh
-argocd app sync apiops
+Configure auto-sync:  argocd app set <APPNAME> --sync-policy automated
+Manual initiate sync:  argocd app sync apiops
 ```
