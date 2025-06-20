@@ -12,7 +12,7 @@ spec:
     origin: KUBERNETES
     syncFrom: MANAGEMENT
   contextRef:
-    name: management-context-1
+    name: apim-example-context
     namespace: default
   listeners:
     - type: HTTP
