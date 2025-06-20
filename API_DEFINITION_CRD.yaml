@@ -9,6 +9,7 @@ spec:
   version: 1.0.0
   type: PROXY
   lifecycleState: PUBLISHED
+  visibility: PUBLIC
   definitionContext:
     origin: KUBERNETES
     syncFrom: MANAGEMENT
