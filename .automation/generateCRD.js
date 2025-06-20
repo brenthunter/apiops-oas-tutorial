@@ -152,7 +152,8 @@ function generateCRD(openApiData, propertiesData) {
       description: openApiData.info.description,
       version: openApiData.info.version,
       type: "PROXY",
-      lifecycleState: propertiesData.publishApi, 
+      lifecycleState: propertiesData.publishApi,
+      visibility: PUBLIC,
       definitionContext: {
         origin: "KUBERNETES",
         syncFrom: "MANAGEMENT"
