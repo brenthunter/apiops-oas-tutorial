@@ -21,7 +21,7 @@ kubectl config set-context --current --namespace=argocd
 ```
 
 ```sh
-argocd app create apiops --repo https://github.com/jmcx/apiops-oas-tutorial.git  --path "." --dest-namespace default --dest-server https://kubernetes.default.svc
+argocd app create apiops --repo https://github.com/brenthunter/apiops-oas-tutorial.git  --path "." --dest-namespace default --dest-server https://kubernetes.default.svc
 ```
 
 ```sh
