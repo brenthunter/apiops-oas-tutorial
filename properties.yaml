@@ -12,8 +12,8 @@ environment: apim-example-context
 
 #############
 
-# (Optional) Publish API to Developer Portal
-publishApi: true
+# (Optional) Publish API to Developer Portal (CREATED | PUBLISHED)
+publishApi: "PUBLISHED"
 
 # (Optional) Add all OpenAPI paths.  Creates flows for every path, including method(s) too.
 addOpenApiPathsToFlowsEnabled: false
