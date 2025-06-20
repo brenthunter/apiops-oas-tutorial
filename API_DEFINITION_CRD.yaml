@@ -8,6 +8,7 @@ spec:
   description: A sample API to illustrate OpenAPI concepts
   version: 1.0.0
   type: PROXY
+  lifecycleState: PUBLISHED
   definitionContext:
     origin: KUBERNETES
     syncFrom: MANAGEMENT
