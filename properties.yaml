@@ -16,10 +16,10 @@ environment: apim-example-context
 publishApi: "PUBLISHED"
 
 # (Optional) Add all OpenAPI paths.  Creates flows for every path, including method(s) too.
-addOpenApiPathsToFlowsEnabled: true
+addOpenApiPathsToFlowsEnabled: false
 
 # (Optional) Use the corporate rate-limit configure.
-rateLimitingEnabled: true
+rateLimitingEnabled: false
 
 # (Optional) Add OpenAPI Spec Validation.
-addOpenApiSpecValidationEnabled: true
+addOpenApiSpecValidationEnabled: false
