@@ -22,4 +22,4 @@ addOpenApiPathsToFlowsEnabled: true
 rateLimitingEnabled: true
 
 # (Optional) Add OpenAPI Spec Validation.
-addOpenApiSpecValidationEnabled: false
+addOpenApiSpecValidationEnabled: true
