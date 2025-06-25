@@ -66,5 +66,29 @@ spec:
           response: []
           subscribe: []
           publish: []
-  flows: []
+  flows:
+    - name: Root path for only Echo response
+      enabled: true
+      selectors:
+        - type: HTTP
+          path: /
+          pathOperator: EQUALS
+          methods:
+            - GET
+    - name: Returns a list of stuff
+      enabled: true
+      selectors:
+        - type: HTTP
+          path: /list
+          pathOperator: EQUALS
+          methods:
+            - GET
+    - name: Create a new Pet
+      enabled: true
+      selectors:
+        - type: HTTP
+          path: /pets
+          pathOperator: EQUALS
+          methods:
+            - POST
   resources: []
