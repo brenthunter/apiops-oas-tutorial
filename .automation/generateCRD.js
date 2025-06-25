@@ -23,7 +23,7 @@ function generateCRD(openApiData, propertiesData) {
           ],
           request: [ {
             name: 'Rate Limit',
-            description: 'Standard rate limiting of 500 requests per minute (per consumer)',
+            description: 'Standard rate limiting of 5 requests per minute (per consumer)',
             enabled: true,
             policy: 'rate-limit',
             configuration: {
@@ -32,7 +32,7 @@ function generateCRD(openApiData, propertiesData) {
               rate: {
                 useKeyOnly: false,
                 periodTime: 1,
-                limit: 500,
+                limit: 5,
                 periodTimeUnit: 'MINUTES',
               },
             },
