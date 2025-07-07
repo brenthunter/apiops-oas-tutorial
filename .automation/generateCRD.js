@@ -88,6 +88,7 @@ function generateCRD(openApiData, propertiesData) {
   };
 
   let resources = [];
+  let pagesDocumentation = [];
   if (propertiesData.addOpenApiSpecValidationEnabled) {
     resources = [{
           name: "OpenAPI Specification",
@@ -137,7 +138,7 @@ function generateCRD(openApiData, propertiesData) {
     flowsFromOpenAPI.unshift(flowsOpenApiSpec);
 
     // OpenAPI/Swagger Documentation
-    const pagesDocumentation = {
+    let tmpPage = {
       OpenAPIDoc: {
         name: "OpenAPI Specification Documentation",
         type: "SWAGGER",
@@ -154,6 +155,7 @@ function generateCRD(openApiData, propertiesData) {
         content: NEWescapedYamlStringLiteral.toString(),
       },
     };
+    pagesDocumentation.push(tmpPage);
   };
 
 
