@@ -139,21 +139,20 @@ function generateCRD(openApiData, propertiesData) {
 
   // OpenAPI/Swagger Documentation
   let pagesDocumentation = {
-      OpenAPIDoc: [{
+      OpenAPIDoc: {
         name: "OpenAPI Specification Documentation",
         type: "SWAGGER",
         published: true,
         visibility: "PUBLIC",
-        configuration: [{
+        configuration: {
           viewer: "Swagger", 
           entrypointAsBasePath: "false", 
           entrypointsAsServers: "true", 
           tryIt: "true", 
           tryItAnonymous: "true", 
           showURL: "true", 
-        }],
-        content: "",
-      }],
+        },
+      },
   };
   pagesDocumentation[0].OpenAPIDoc.content = NEWescapedYamlStringLiteral.toString();
 
