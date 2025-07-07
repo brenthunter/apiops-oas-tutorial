@@ -222,7 +222,7 @@ function generateCRD(openApiData, propertiesData) {
       plans: plans,
       flows: flowsFromOpenAPI,
       resources: resources,
-      pages: pages,
+      pages: pagesDocumentation,
     },
   };
   return yaml.dump(crd);
