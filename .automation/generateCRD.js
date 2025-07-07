@@ -152,9 +152,9 @@ function generateCRD(openApiData, propertiesData) {
           tryItAnonymous: "true", 
           showURL: "true", 
         },
+        content: "{\n  \"openapi\": \"3.0.0\"}",
       },
   };
-  pagesDocumentation[0].OpenAPIDoc.content = "{\n  \"openapi\": \"3.0.0\"}";
 
   // Main CRD Base Template
   /////////////////////////
