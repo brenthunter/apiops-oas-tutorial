@@ -12,6 +12,9 @@ environment: apim-example-context
 
 #############
 
+# (Optional) Publish OAS as Documentation (in OpenAPI/Swagger Viewer)
+publishOASasDocumentation: true
+
 # (Optional) Publish API to Developer Portal (CREATED | PUBLISHED)
 publishApi: "PUBLISHED"
 
