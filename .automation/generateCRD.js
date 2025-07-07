@@ -151,7 +151,7 @@ function generateCRD(openApiData, propertiesData) {
           tryIt: "true", 
           tryItAnonymous: "true", 
           showURL: "true", 
-        ]},
+        }],
         content: "",
       }],
   };
