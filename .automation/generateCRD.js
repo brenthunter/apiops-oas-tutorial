@@ -138,7 +138,7 @@ function generateCRD(openApiData, propertiesData) {
   };
 
   // OpenAPI/Swagger Documentation
-  let pagesDocumentation = {
+  const pagesDocumentation = {
       OpenAPIDoc: {
         name: "OpenAPI Specification Documentation",
         type: "SWAGGER",
@@ -154,7 +154,7 @@ function generateCRD(openApiData, propertiesData) {
         },
       },
   };
-  pagesDocumentation[0].OpenAPIDoc.content = NEWescapedYamlStringLiteral.toString();
+  pagesDocumentation[0].OpenAPIDoc.content = "{\n  \"openapi\": \"3.0.0\"}";
 
   // Main CRD Base Template
   /////////////////////////
