@@ -137,6 +137,26 @@ function generateCRD(openApiData, propertiesData) {
     flowsFromOpenAPI.unshift(flowsOpenApiSpec);
   };
 
+  // OpenAPI/Swagger Documentation
+  let pagesDocumentation = {
+      OpenAPIDoc: [{
+        name: "OpenAPI Specification Documentation",
+        type: "SWAGGER",
+        published: true,
+        visibility: "PUBLIC",
+        configuration: [{
+          viewer: "Swagger", 
+          entrypointAsBasePath: "false", 
+          entrypointsAsServers: "true", 
+          tryIt: "true", 
+          tryItAnonymous: "true", 
+          showURL: "true", 
+        ]},
+        content: "",
+      }],
+  };
+  pagesDocumentation[0].OpenAPIDoc.content = NEWescapedYamlStringLiteral.toString();
+
   // Main CRD Base Template
   /////////////////////////
   const crd = {
@@ -202,6 +222,7 @@ function generateCRD(openApiData, propertiesData) {
       plans: plans,
       flows: flowsFromOpenAPI,
       resources: resources,
+      pages: pages,
     },
   };
   return yaml.dump(crd);
