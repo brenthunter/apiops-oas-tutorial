@@ -140,18 +140,40 @@ spec:
                     description: Created 
       enabled: true
   pages:
-    OpenAPIDoc:
-      name: OpenAPI Specification Documentation
-      type: SWAGGER
-      published: true
-      visibility: PUBLIC
-      configuration:
-        viewer: Swagger
-        entrypointAsBasePath: 'false'
-        entrypointsAsServers: 'true'
-        tryIt: 'true'
-        tryItAnonymous: 'true'
-        showURL: 'true'
-      content: |-
-        {
-          "openapi": "3.0.0"}
+    - OpenAPIDoc:
+        name: OpenAPI Specification Documentation
+        type: SWAGGER
+        published: true
+        visibility: PUBLIC
+        configuration:
+          viewer: Swagger
+          entrypointAsBasePath: 'false'
+          entrypointsAsServers: 'true'
+          tryIt: 'true'
+          tryItAnonymous: 'true'
+          showURL: 'true'
+        content: |
+          openapi: 3.1.0 
+          info: 
+            version: 1.0.0 
+            title: Petstore API 
+            description: A sample API to illustrate OpenAPI concepts 
+          paths: 
+            /: 
+              get: 
+                description: Root path for only Echo response 
+                responses: 
+                  '200': 
+                    description: Successful response 
+            /list: 
+              get: 
+                description: Returns a list of stuff 
+                responses: 
+                  '200': 
+                    description: Successful response 
+            /pets: 
+              post: 
+                description: Create a new Pet 
+                responses: 
+                  '201': 
+                    description: Created 
