@@ -15,7 +15,7 @@ environment: apim-example-context
 # (Optional) Publish OAS as Documentation (in OpenAPI/Swagger Viewer)
 publishOASasDocumentation: true
 
-# (Optional) Publish API to Developer Portal (CREATED | PUBLISHED)
+# (Optional) Publish API to Developer Portal (CREATED | PUBLISHED).
 publishApi: "PUBLISHED"
 
 # (Optional) Add all OpenAPI paths.  Creates flows for every path, including method(s) too.
