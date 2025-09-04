@@ -29,7 +29,7 @@ paths:
       description: Returns a list of stuff              
       responses:
         '200':
-          description: Successful response
+          description: Successful response.
   /pets:
     post:
       description: Create a new Pet             
