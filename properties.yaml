@@ -22,7 +22,7 @@ publishApi: "PUBLISHED"
 addOpenApiPathsToFlowsEnabled: true
 
 # (Optional) Use the corporate rate-limit configure.
-rateLimitingEnabled: true
+rateLimitingEnabled: false
 
 # (Optional) Add OpenAPI Spec Validation.
 addOpenApiSpecValidationEnabled: true
