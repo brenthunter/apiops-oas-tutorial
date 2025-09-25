@@ -132,7 +132,7 @@ spec:
                   '201': 
                     description: Created 
       enabled: true
-    - ref: Gravitee IdP
+    - ref: 
       name: reusable-resource-oauth2
   pages:
     OpenAPIDoc:
