@@ -43,9 +43,10 @@ function generateCRD(openApiData, propertiesData) {
         },
       ]
     : [ ];
-  
-  const plans = propertiesData.apiKeyEnabled
-    ? {
+
+  const plans = {};
+  if (propertiesData.apiKeyEnabled) {
+    plans = {
         API_KEY: {
           name: "API Key plan",
           description: "API key plan needs a key to authenticate",
@@ -55,18 +56,8 @@ function generateCRD(openApiData, propertiesData) {
           flows: planFlows,
         },
       }
-    : {
-        KeyLess: {
-          name: "Free plan",
-          description: "This plan does not require any authentication",
-          security: {
-            type: "KEY_LESS",
-          },
-          flows: planFlows,
-        },
-      };
-  const plans = propertiesData.oAuthEnabled
-    ? {
+  } elseif (propertiesData.oAuthEnabled) {
+    plans = {
         OAUTH2: {
           name: "OAuth Plan",
           description: "Secure plan needs an OAuth token to authenticate",
@@ -84,7 +75,8 @@ function generateCRD(openApiData, propertiesData) {
           flows: planFlows,
         },
       }
-    : {
+  } else {
+    plans = {
         KeyLess: {
           name: "Free plan",
           description: "This plan does not require any authentication",
@@ -94,6 +86,7 @@ function generateCRD(openApiData, propertiesData) {
           flows: planFlows,
         },
       };
+  };
   
   let flowsFromOpenAPI = [];
   if (propertiesData.addOpenApiPathsToFlowsEnabled) {
