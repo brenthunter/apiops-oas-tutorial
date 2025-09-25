@@ -37,11 +37,18 @@ spec:
     mode: DEFAULT
     matchRequired: false
   plans:
-    API_KEY:
-      name: API Key plan
-      description: API key plan needs a key to authenticate
+    OAUTH2:
+      name: OAuth Plan
+      description: Secure plan needs an OAuth token to authenticate
       security:
-        type: API_KEY
+        type: OAUTH2
+        configuration:
+          oauthResource: Gravitee IdP
+          extractPayload: true
+          checkRequiredScopes: false
+          requiredScopes: []
+          modeStrict: true
+          propagateAuthHeader: false
       flows: []
   flows:
     - name: OpenAPI Specification Validation
@@ -132,6 +139,16 @@ spec:
                   '201': 
                     description: Created 
       enabled: true
+    - name: Gravitee IdP
+      type: oauth2-am-resource
+      configuration:
+        serverURL: https://demo-am-gateway.brent.gravitee.xyz
+        useSystemProxy: false
+        version: V3_X
+        securityDomain: brentdomain
+        clientId: b76a525f-9d95-4aa1-aa52-5f9d952aa17d
+        clientSecret: 6iJ7yuaIvwIOJPMMmpLU-ksPddwaUXD0KBLSrDiu2tU
+        userClaim: sub
   pages:
     OpenAPIDoc:
       name: OpenAPI Specification Documentation
