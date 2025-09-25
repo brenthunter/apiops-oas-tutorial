@@ -4,9 +4,9 @@ entrypoint: "/petstore"
 # (Mandatory) The endpoint refers to the backend service to be proxied.
 endpoint: "https://api.gravitee.io/echo"
 
-# (Mandatory) gapiKeyEnabled determines whether or not an API key plan should be added to the API. Otherwise a KEYLESS plan is the default.
-apiKeyEnabled: false
-oAuthEnabled: true
+# (Mandatory) apiKeyEnabled determines whether or not an API key plan should be added to the API. Otherwise a KEYLESS plan is the default.
+apiKeyEnabled: true
+oAuthEnabled: false
 
 # (Mandatory) The environment parameter is used to determine on which environment the API should be created.
 environment: apim-example-context
