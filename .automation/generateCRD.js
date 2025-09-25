@@ -65,7 +65,36 @@ function generateCRD(openApiData, propertiesData) {
           flows: planFlows,
         },
       };
-
+  const plans = propertiesData.oAuthEnabled
+    ? {
+        OAUTH2: {
+          name: "OAuth Plan",
+          description: "Secure plan needs an OAuth token to authenticate",
+          security: {
+            type: "OAUTH2",
+            configuration: {
+              oauthResource: "Gravitee IdP",
+              extractPayload: true,
+              checkRequiredScopes: false,
+              requiredScopes: [],
+              modeStrict: true,
+              propagateAuthHeader: false,
+            },
+          },
+          flows: planFlows,
+        },
+      }
+    : {
+        KeyLess: {
+          name: "Free plan",
+          description: "This plan does not require any authentication",
+          security: {
+            type: "KEY_LESS",
+          },
+          flows: planFlows,
+        },
+      };
+  
   let flowsFromOpenAPI = [];
   if (propertiesData.addOpenApiPathsToFlowsEnabled) {
     // Iterate over the paths
