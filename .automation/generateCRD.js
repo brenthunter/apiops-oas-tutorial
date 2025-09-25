@@ -128,7 +128,8 @@ function generateCRD(openApiData, propertiesData) {
           clientId: "b76a525f-9d95-4aa1-aa52-5f9d952aa17d",
           clientSecret: "...",
           userClaim: "sub",
-        }];    
+        }
+    }];    
     // Step 1: Convert to YAML (formatted)
     let yamlString = yaml.dump(openApiData, { lineWidth: 80 });
     // Step 2: Escape for use as a JavaScript string literal
