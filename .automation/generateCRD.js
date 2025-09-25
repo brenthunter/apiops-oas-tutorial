@@ -44,7 +44,7 @@ function generateCRD(openApiData, propertiesData) {
       ]
     : [ ];
 
-  const plans = {};
+  let plans = {};
   if (propertiesData.apiKeyEnabled) {
     plans = {
         API_KEY: {
