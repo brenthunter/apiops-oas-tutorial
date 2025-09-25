@@ -8,7 +8,7 @@ endpoint: "https://api.gravitee.io/echo"
 apiKeyEnabled: true
 oAuthEnabled: false
 
-# (Mandatory) The environment parameter is used to determine on which environment the API should be created.
+# (Mandatory) The environment parameter is used to determine on which environment the API should be created
 environment: apim-example-context
 
 #############
