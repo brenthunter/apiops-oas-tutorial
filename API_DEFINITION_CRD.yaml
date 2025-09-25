@@ -37,18 +37,11 @@ spec:
     mode: DEFAULT
     matchRequired: false
   plans:
-    OAUTH2:
-      name: OAuth Plan
-      description: Secure plan needs an OAuth token to authenticate
+    API_KEY:
+      name: API Key plan
+      description: API key plan needs a key to authenticate
       security:
-        type: OAUTH2
-        configuration:
-          oauthResource: Gravitee IdP
-          extractPayload: true
-          checkRequiredScopes: false
-          requiredScopes: []
-          modeStrict: true
-          propagateAuthHeader: false
+        type: API_KEY
       flows: []
   flows:
     - name: OpenAPI Specification Validation
