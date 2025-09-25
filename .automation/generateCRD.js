@@ -117,7 +117,19 @@ function generateCRD(openApiData, propertiesData) {
           type: "content-provider-inline-resource",
           configuration: {},
           enabled: true,
-    }];    
+      },{
+        name: "Gravitee IdP",
+        type: "oauth2-am-resource"
+        configuration: {
+          serverURL: "https://demo-am-gateway.brent.gravitee.xyz"
+          useSystemProxy: false,
+          version: "V3_X",
+          securityDomain: "brentdomain",
+          clientId: "b76a525f-9d95-4aa1-aa52-5f9d952aa17d",
+          clientSecret: "6iJ7yuaIvwIOJPMMmpLU-ksPddwaUXD0KBLSrDiu2tU",
+          userClaim: "sub",
+        }
+      }];    
     // Step 1: Convert to YAML (formatted)
     let yamlString = yaml.dump(openApiData, { lineWidth: 80 });
     // Step 2: Escape for use as a JavaScript string literal
