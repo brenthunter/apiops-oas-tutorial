@@ -134,6 +134,7 @@ spec:
       enabled: true
     - ref: 
       name: reusable-resource-oauth2
+      type: oauth2
       namespace: default
   pages:
     OpenAPIDoc:
