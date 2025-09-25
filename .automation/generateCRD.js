@@ -119,9 +119,9 @@ function generateCRD(openApiData, propertiesData) {
           enabled: true,
       },{
         name: "Gravitee IdP",
-        type: "oauth2-am-resource"
+        type: "oauth2-am-resource",
         configuration: {
-          serverURL: "https://demo-am-gateway.brent.gravitee.xyz"
+          serverURL: "https://demo-am-gateway.brent.gravitee.xyz",
           useSystemProxy: false,
           version: "V3_X",
           securityDomain: "brentdomain",
