@@ -5,8 +5,8 @@ entrypoint: "/petstore"
 endpoint: "https://api.gravitee.io/echo"
 
 # (Mandatory) apiKeyEnabled determines whether or not an API key plan should be added to the API. Otherwise a KEYLESS plan is the default.
-apiKeyEnabled: true
-# oAuthEnabled: false
+apiKeyEnabled: false
+oAuthEnabled: true
 
 # (Mandatory) The environment parameter is used to determine on which environment the API should be created.
 environment: apim-example-context
