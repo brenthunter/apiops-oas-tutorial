@@ -56,7 +56,7 @@ function generateCRD(openApiData, propertiesData) {
           flows: planFlows,
         },
       }
-  } elseif (propertiesData.oAuthEnabled) {
+  } else if (propertiesData.oAuthEnabled) {
     plans = {
         OAUTH2: {
           name: "OAuth Plan",
