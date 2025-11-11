@@ -80,7 +80,7 @@ spec:
           configuration:
             resourceName: OpenAPI Specification
             validationOptions:
-              - strictOperationPathMatching: false
+              strictOperationPathMatching: false
       response:
         - name: OpenAPI Specification Validation
           enabled: true
