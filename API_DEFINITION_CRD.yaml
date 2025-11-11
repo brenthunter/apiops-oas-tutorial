@@ -79,6 +79,8 @@ spec:
           policy: oas-validation
           configuration:
             resourceName: OpenAPI Specification
+            validationOptions:
+              - strictOperationPathMatching: false
       response:
         - name: OpenAPI Specification Validation
           enabled: true
