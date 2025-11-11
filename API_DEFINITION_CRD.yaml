@@ -67,6 +67,24 @@ spec:
           subscribe: []
           publish: []
   flows:
+    - name: OpenAPI Specification Validation
+      enabled: true
+      selectors:
+        - type: HTTP
+          path: /
+          pathOperator: STARTS_WITH
+      request:
+        - name: OpenAPI Specification Validation
+          enabled: true
+          policy: oas-validation
+          configuration:
+            resourceName: OpenAPI Specification
+      response:
+        - name: OpenAPI Specification Validation
+          enabled: true
+          policy: oas-validation
+          configuration:
+            resourceName: OpenAPI Specification
     - name: Root path for only Echo response
       enabled: true
       selectors:
@@ -91,5 +109,113 @@ spec:
           pathOperator: EQUALS
           methods:
             - POST
-  resources: []
-  pages: {}
+  resources:
+    - name: OpenAPI Specification
+      type: content-provider-inline-resource
+      configuration:
+        content: |
+          openapi: 3.1.0 
+          info: 
+            version: 1.0.0 
+            title: Petstore API 
+            description: A sample API to illustrate OpenAPI concepts 
+          paths: 
+            /: 
+              get: 
+                description: Root path for only Echo response 
+                responses: 
+                  '200': 
+                    description: Successful response 
+                    content: 
+                      application/json: 
+                        schema: 
+                          type: object 
+                          properties: 
+                            bodySize: 
+                              type: string 
+                              description: Displays the size of the original request body. 
+                            headers: 
+                              type: string 
+                              description: Displays all the headers from the original request. 
+                            query_params: 
+                              type: string 
+                              description: >- 
+                                Displays all the query parameters from the original 
+                                request. 
+            /list: 
+              get: 
+                description: Returns a list of stuff 
+                responses: 
+                  '200': 
+                    description: Successful response. 
+            /pets: 
+              post: 
+                description: Create a new Pet 
+                responses: 
+                  '201': 
+                    description: Created 
+      enabled: true
+    - name: Gravitee IdP2
+      type: oauth2-am-resource
+      configuration:
+        serverURL: https://demo-am-gateway.brent.gravitee.xyz
+        useSystemProxy: false
+        version: V3_X
+        securityDomain: brentdomain
+        clientId: b76a525f-9d95-4aa1-aa52-5f9d952aa17d
+        clientSecret: '{#secret://kubernetes/shared_aouth_resource/clientSecret}'
+        userClaim: sub
+  pages:
+    OpenAPIDoc:
+      name: OpenAPI Specification Documentation
+      type: SWAGGER
+      published: true
+      visibility: PUBLIC
+      configuration:
+        viewer: Swagger
+        entrypointAsBasePath: 'false'
+        entrypointsAsServers: 'true'
+        tryIt: 'true'
+        tryItAnonymous: 'true'
+        showURL: 'true'
+      content: |
+        openapi: 3.1.0 
+        info: 
+          version: 1.0.0 
+          title: Petstore API 
+          description: A sample API to illustrate OpenAPI concepts 
+        paths: 
+          /: 
+            get: 
+              description: Root path for only Echo response 
+              responses: 
+                '200': 
+                  description: Successful response 
+                  content: 
+                    application/json: 
+                      schema: 
+                        type: object 
+                        properties: 
+                          bodySize: 
+                            type: string 
+                            description: Displays the size of the original request body. 
+                          headers: 
+                            type: string 
+                            description: Displays all the headers from the original request. 
+                          query_params: 
+                            type: string 
+                            description: >- 
+                              Displays all the query parameters from the original 
+                              request. 
+          /list: 
+            get: 
+              description: Returns a list of stuff 
+              responses: 
+                '200': 
+                  description: Successful response. 
+          /pets: 
+            post: 
+              description: Create a new Pet 
+              responses: 
+                '201': 
+                  description: Created 
