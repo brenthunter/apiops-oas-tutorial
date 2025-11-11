@@ -160,6 +160,7 @@ function generateCRD(openApiData, propertiesData) {
           resourceName: "OpenAPI Specification",
           validationOptions: {
             strictOperationPathMatching: false,
+            logInsteadOfThrowError: true,
           },
         }
       }],
