@@ -126,7 +126,7 @@ function generateCRD(openApiData, propertiesData) {
           version: "V3_X",
           securityDomain: "brentdomain",
           clientId: "b76a525f-9d95-4aa1-aa52-5f9d952aa17d",
-          clientSecret: "...",
+          clientSecret: "{#secret://kubernetes/shared_aouth_resource/clientSecret}",
           userClaim: "sub",
         }
     }];    
