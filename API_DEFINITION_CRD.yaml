@@ -81,7 +81,7 @@ spec:
             resourceName: OpenAPI Specification
             validationOptions:
               strictOperationPathMatching: false
-              logInsteadOfThrowError: true
+              validateRequestPathAndMethod: false
       response:
         - name: OpenAPI Specification Validation
           enabled: true
