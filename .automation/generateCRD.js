@@ -158,6 +158,9 @@ function generateCRD(openApiData, propertiesData) {
         policy: "oas-validation",
         configuration: {
           resourceName: "OpenAPI Specification",
+          validationOptions: {
+            strictOperationPathMatching: false,
+          },
         }
       }],
       response: [{
