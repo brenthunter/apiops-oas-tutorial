@@ -22,7 +22,7 @@ publishApi: "PUBLISHED"
 # (Optional) Add all OpenAPI paths.  Creates flows for every path, including method(s) too
 addOpenApiPathsToFlowsEnabled: true
 
-# (Optional) Use the corporate rate-limit configure..
+# (Optional) Use the corporate rate-limit configure.
 rateLimitingEnabled: true
 
 # (Optional) Add OpenAPI Spec Validation.
