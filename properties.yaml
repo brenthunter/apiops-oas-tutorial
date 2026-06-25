@@ -19,7 +19,7 @@ publishOASasDocumentation: true
 # (Optional) Publish API to Developer Portal (CREATED | PUBLISHED)
 publishApi: "PUBLISHED"
 
-# (Optional) Add all OpenAPI paths.  Creates flows for every path, including method(s) too
+# (Optional) Add all OpenAPI paths.  Creates flows for every path, including method(s) too.
 addOpenApiPathsToFlowsEnabled: true
 
 # (Optional) Use the corporate rate-limit configure.
