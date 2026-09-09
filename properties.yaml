@@ -1,5 +1,5 @@
 # (Mandatory) The pipeline will use the entrypoint to configure the base path (aka context path) on which this API will be exposed on the API Gateway.
-entrypoint: "/petstore"
+entrypoint: "/petstore3"
 
 # (Mandatory) The endpoint refers to the backend service to be proxied.
 endpoint: "https://api.gravitee.io/echo"
