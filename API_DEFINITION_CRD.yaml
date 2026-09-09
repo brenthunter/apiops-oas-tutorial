@@ -19,7 +19,7 @@ spec:
   listeners:
     - type: HTTP
       paths:
-        - path: /petstore2
+        - path: /petstore
       entrypoints:
         - type: http-proxy
           qos: AUTO
